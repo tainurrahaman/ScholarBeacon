@@ -47,10 +47,8 @@ const Navbar = () => {
           <a className="text-[20px] hidden md:block font-bold">ScholarBeacon</a>
         </div>
       </div>
-      <div className="navbar-center hidden lg:flex">
+      <div className="navbar-end hidden lg:flex">
         <ul className="menu menu-horizontal px-1">{links}</ul>
-      </div>
-      <div className="navbar-end">
         <a className="btn">Login</a>
       </div>
     </div>
