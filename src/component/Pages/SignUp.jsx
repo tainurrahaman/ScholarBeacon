@@ -1,17 +1,51 @@
 import Lottie from "lottie-react";
 import { useForm } from "react-hook-form";
 import registerLottieData from "../../assets/lottie/signup.json";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { FcGoogle } from "react-icons/fc";
+import UseAuth from "../../Hook/UseAuth";
+import UseAxiosPublic from "../../Hook/UseAxiosPublic";
+import Swal from "sweetalert2";
 
 const SignUp = () => {
+  const axiosPublic = UseAxiosPublic();
+  const { createNewUser, updateUserProfile } = UseAuth();
+  const navigate = useNavigate();
+
   const {
     register,
     handleSubmit,
     formState: { errors },
   } = useForm();
 
-  const handleSignUp = (data) => console.log(data);
+  const handleSignUp = (data) => {
+    console.log(data);
+    createNewUser(data.email, data.password)
+      .then((result) => {
+        // console.log(result.user);
+        updateUserProfile(data.name, data.photo).then(() => {
+          const userInfo = {
+            name: data.name,
+            email: data.email,
+          };
+          axiosPublic.post("/users", userInfo).then((res) => {
+            if (res.data.insertedId) {
+              Swal.fire({
+                position: "top-end",
+                icon: "success",
+                title: "Registration Successful",
+                showConfirmButton: false,
+                timer: 1500,
+              });
+              navigate("/");
+            }
+          });
+        });
+      })
+      .catch((error) => {
+        console.log(error.message);
+      });
+  };
 
   return (
     <div className="hero mt-20">
@@ -53,12 +87,12 @@ const SignUp = () => {
                 Photo URL
               </label>
               <input
-                {...register("photoURL", { required: "Photo URL is required" })}
+                {...register("photo", { required: "Photo URL is required" })}
                 type="text"
                 className="input"
                 placeholder="Enter your Photo URL"
               />
-              {errors.photoURL && (
+              {errors.photo && (
                 <p className="text-red-500">{errors.photoURL.message}</p>
               )}
 

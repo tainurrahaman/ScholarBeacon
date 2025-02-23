@@ -5,13 +5,15 @@ import {
   onAuthStateChanged,
   signInWithEmailAndPassword,
   signOut,
+  updateProfile,
 } from "firebase/auth";
 
 export const AuthContext = createContext(null);
-const [users, setUsers] = useState(null);
-const [loading, setLoading] = useState(true);
 
 const AuthProvider = ({ children }) => {
+  const [users, setUsers] = useState(null);
+  const [loading, setLoading] = useState(true);
+
   const createNewUser = (email, password) => {
     setLoading(true);
     return createUserWithEmailAndPassword(auth, email, password);
@@ -20,6 +22,19 @@ const AuthProvider = ({ children }) => {
   const loginUser = (email, password) => {
     setLoading(true);
     return signInWithEmailAndPassword(auth, email, password);
+  };
+
+  const updateUserProfile = (name, photo) => {
+    setLoading(true);
+    return updateProfile(auth.currentUser, {
+      displayName: name,
+      photoURL: photo,
+    });
+  };
+
+  const logOutUser = () => {
+    setLoading(true);
+    return signOut(auth);
   };
 
   useEffect(() => {
@@ -32,12 +47,14 @@ const AuthProvider = ({ children }) => {
     };
   }, []);
 
-  const logOutUser = () => {
-    setLoading(true);
-    return signOut(auth);
+  const authInfo = {
+    createNewUser,
+    users,
+    loading,
+    loginUser,
+    logOutUser,
+    updateUserProfile,
   };
-
-  const authInfo = { createNewUser, users, loading, loginUser, logOutUser };
 
   return (
     <AuthContext.Provider value={authInfo}>{children}</AuthContext.Provider>
