@@ -1,6 +1,8 @@
 import Lottie from "lottie-react";
 import { useForm } from "react-hook-form";
 import registerLottieData from "../../assets/lottie/signup.json";
+import { Link } from "react-router-dom";
+import { FcGoogle } from "react-icons/fc";
 
 const SignUp = () => {
   const {
@@ -81,6 +83,21 @@ const SignUp = () => {
               </button>
             </fieldset>
           </form>
+          <div>
+            <p className="text-center font-medium text-[18px]">
+              Already Registered? Go to{" "}
+              <Link to="/login" className="font-bold text-[#078f7f] ">
+                Login
+              </Link>
+              <br />
+              <span className="text-[16px]">Or SignUp with</span>
+            </p>
+            <div className="flex justify-center my-5">
+              <p className="flex items-center font-bold text-[16px] gap-2 border px-3 py-1 rounded-3xl btn hover:bg-[#70cac0f8]">
+                <FcGoogle></FcGoogle> Google
+              </p>
+            </div>
+          </div>
         </div>
       </div>
     </div>
