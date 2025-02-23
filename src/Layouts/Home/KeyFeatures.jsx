@@ -89,6 +89,15 @@ const KeyFeatures = () => {
           />
         </div>
       </div>
+      <div className="pt-10">
+        <p className="text-[18px]">
+          ScholarBeacon is a one-of-a-kind solution that manages all aspects of
+          a scholarship program in one central platform, including application
+          processing, disbursement, bursaries and one-time grants, performance
+          tracking, communication, and reporting. This simplifies operations,
+          reduces administrative burden, and eliminates data silos.
+        </p>
+      </div>
     </div>
   );
 };
