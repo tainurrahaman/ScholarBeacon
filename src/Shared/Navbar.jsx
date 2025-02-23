@@ -1,7 +1,21 @@
 import { Link } from "react-router-dom";
 import logo from "../assets/icon.png";
+import UseAuth from "../Hook/UseAuth";
+import { toast, ToastContainer } from "react-toastify";
 
 const Navbar = () => {
+  const { user, logOutUser } = UseAuth();
+
+  const handleLogout = () => {
+    logOutUser()
+      .then(() => {
+        toast("Sign out Successfully");
+      })
+      .catch((err) => {
+        toast(err.message);
+      });
+  };
+
   const links = (
     <>
       <li>
@@ -49,10 +63,24 @@ const Navbar = () => {
       </div>
       <div className="navbar-end hidden lg:flex">
         <ul className="menu menu-horizontal px-1">{links}</ul>
-        <Link to="/login" className="btn">
-          Login
-        </Link>
+        {user?.email ? (
+          <Link
+            onClick={handleLogout}
+            to="/"
+            className="btn bg-[#0AA592] text-white hover:bg-slate-800"
+          >
+            Logout
+          </Link>
+        ) : (
+          <Link
+            to="/login"
+            className="btn bg-[#0AA592] text-white hover:bg-slate-800"
+          >
+            Login
+          </Link>
+        )}
       </div>
+      <ToastContainer></ToastContainer>
     </div>
   );
 };

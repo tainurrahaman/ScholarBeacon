@@ -1,17 +1,33 @@
 import Lottie from "lottie-react";
 import { useForm } from "react-hook-form";
 import loginLottieData from "../../assets/lottie/login.json";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { FcGoogle } from "react-icons/fc";
+import UseAuth from "../../Hook/UseAuth";
+import { toast, ToastContainer } from "react-toastify";
+import SocialLogin from "../../Shared/SocialLogin";
 
 const Login = () => {
+  const { loginUser } = UseAuth();
+  const navigate = useNavigate();
+
   const {
     register,
     handleSubmit,
     formState: { errors },
   } = useForm();
 
-  const handleSignUp = (data) => console.log(data);
+  const handleSignUp = (data) => {
+    loginUser(data.email, data.password)
+      .then((result) => {
+        navigate("/");
+        toast("Successfully Login");
+        console.log(result);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  };
 
   return (
     <div className="hero bg-base-200 min-h-screen">
@@ -66,14 +82,11 @@ const Login = () => {
               <br />
               <span className="text-[16px]">Or Login with</span>
             </p>
-            <div className="flex justify-center my-5">
-              <p className="flex items-center font-bold text-[16px] gap-2 border px-3 py-1 rounded-3xl btn hover:bg-[#70cac0f8]">
-                <FcGoogle></FcGoogle> Google
-              </p>
-            </div>
+            <SocialLogin></SocialLogin>
           </div>
         </div>
       </div>
+      <ToastContainer></ToastContainer>
     </div>
   );
 };

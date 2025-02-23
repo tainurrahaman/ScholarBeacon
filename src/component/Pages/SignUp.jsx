@@ -6,6 +6,7 @@ import { FcGoogle } from "react-icons/fc";
 import UseAuth from "../../Hook/UseAuth";
 import UseAxiosPublic from "../../Hook/UseAxiosPublic";
 import Swal from "sweetalert2";
+import SocialLogin from "../../Shared/SocialLogin";
 
 const SignUp = () => {
   const axiosPublic = UseAxiosPublic();
@@ -126,11 +127,7 @@ const SignUp = () => {
               <br />
               <span className="text-[16px]">Or SignUp with</span>
             </p>
-            <div className="flex justify-center my-5">
-              <p className="flex items-center font-bold text-[16px] gap-2 border px-3 py-1 rounded-3xl btn hover:bg-[#70cac0f8]">
-                <FcGoogle></FcGoogle> Google
-              </p>
-            </div>
+            <SocialLogin></SocialLogin>
           </div>
         </div>
       </div>
