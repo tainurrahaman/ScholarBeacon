@@ -8,6 +8,12 @@ import ScholarshipDetails from "../component/Pages/ScholarshipDetails";
 import PrivateRoute from "./PrivateRoute";
 import AdminRoute from "./AdminRoute";
 import AdminDashBoard from "../component/DashBoard/AdminDashBoard";
+import ModeratorRoute from "./ModeratorRoute";
+import ModeratorDashBoard from "../component/DashBoard/ModeratorDashBoard";
+import UserDashBoard from "../component/DashBoard/UserDashBoard";
+import UserProfile from "../Layouts/UserLayout/UserProfile";
+import UserApplication from "../Layouts/UserLayout/UserApplication";
+import UserReviews from "../Layouts/UserLayout/UserReviews";
 
 const router = createBrowserRouter([
   {
@@ -47,6 +53,36 @@ const router = createBrowserRouter([
         <AdminDashBoard />
       </AdminRoute>
     ),
+  },
+  {
+    path: "/moderator",
+    element: (
+      <ModeratorRoute>
+        <ModeratorDashBoard></ModeratorDashBoard>
+      </ModeratorRoute>
+    ),
+  },
+  {
+    path: "/user",
+    element: (
+      <PrivateRoute>
+        <UserDashBoard></UserDashBoard>
+      </PrivateRoute>
+    ),
+    children: [
+      {
+        path: "profile",
+        element: <UserProfile></UserProfile>,
+      },
+      {
+        path: "applications",
+        element: <UserApplication></UserApplication>,
+      },
+      {
+        path: "reviews",
+        element: <UserReviews></UserReviews>,
+      },
+    ],
   },
 ]);
 

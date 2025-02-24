@@ -73,10 +73,11 @@ const AuthProvider = ({ children }) => {
       if (currentUser) {
         try {
           const res = await axiosPublic.get(`/users/${currentUser.email}`);
-          setUser({ ...currentUser, role: res.data?.role });
+          setUser({ ...currentUser, role: res.data?.role, id: res.data?._id });
         } catch (error) {
           console.error("Error fetching user role:", error);
           setUser(currentUser);
+          console.log(currentUser);
         }
       } else {
         setUser(null);
