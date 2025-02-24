@@ -8,10 +8,10 @@ const TopScholarship = () => {
 
   useEffect(() => {
     axiosPublic.get("/scholarships").then((result) => {
-      console.log(result.data);
       setScholarships(result.data);
     });
   }, []);
+
   const sortedScholarships = [...scholarships].sort((a, b) => {
     if (a.application_fees !== b.application_fees) {
       return a.application_fees - b.application_fees;

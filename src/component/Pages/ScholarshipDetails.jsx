@@ -1,9 +1,22 @@
 import { useLocation, useNavigate } from "react-router-dom";
+import AllReviews from "./Allreview";
+import { useEffect, useState } from "react";
+import UseAxiosPublic from "../../Hook/UseAxiosPublic";
 
 const ScholarshipDetails = () => {
   const location = useLocation();
   const navigate = useNavigate();
+  const [reviews, setReviews] = useState([]);
   const { scholarship } = location.state || {};
+
+  const axiosPublic = UseAxiosPublic();
+
+  useEffect(() => {
+    axiosPublic.get(`/reviews/${scholarship._id}`).then((result) => {
+      console.log(result.data);
+      setReviews(result.data);
+    });
+  }, []);
 
   if (!scholarship) {
     return (
@@ -77,6 +90,7 @@ const ScholarshipDetails = () => {
             Apply for Scholarship
           </button>
         </div>
+        <AllReviews reviews={reviews}></AllReviews>
       </div>
     </div>
   );

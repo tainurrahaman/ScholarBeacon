@@ -9,6 +9,7 @@ import {
   signOut,
   updateProfile,
 } from "firebase/auth";
+import UseAxiosPublic from "../Hook/UseAxiosPublic";
 
 export const AuthContext = createContext(null);
 
@@ -16,52 +17,81 @@ const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(null);
   const [loading, setLoading] = useState(true);
   const googleProvider = new GoogleAuthProvider();
+  const axiosPublic = UseAxiosPublic();
 
-  const createNewUser = (email, password) => {
+  const createNewUser = async (email, password) => {
     setLoading(true);
-    return createUserWithEmailAndPassword(auth, email, password);
+    try {
+      return await createUserWithEmailAndPassword(auth, email, password);
+    } finally {
+      setLoading(false);
+    }
   };
 
-  const loginUser = (email, password) => {
+  const loginUser = async (email, password) => {
     setLoading(true);
-    return signInWithEmailAndPassword(auth, email, password);
+    try {
+      return await signInWithEmailAndPassword(auth, email, password);
+    } finally {
+      setLoading(false);
+    }
   };
 
-  const signInwithGoogle = () => {
+  const signInWithGoogle = async () => {
     setLoading(true);
-    return signInWithPopup(auth, googleProvider);
+    try {
+      return await signInWithPopup(auth, googleProvider);
+    } finally {
+      setLoading(false);
+    }
   };
 
-  const updateUserProfile = (name, photo) => {
+  const updateUserProfile = async (name, photo) => {
     setLoading(true);
-    return updateProfile(auth.currentUser, {
-      displayName: name,
-      photoURL: photo,
-    });
+    try {
+      return await updateProfile(auth.currentUser, {
+        displayName: name,
+        photoURL: photo,
+      });
+    } finally {
+      setLoading(false);
+    }
   };
 
-  const logOutUser = () => {
+  const logOutUser = async () => {
     setLoading(true);
-    return signOut(auth);
+    try {
+      return await signOut(auth);
+    } finally {
+      setLoading(false);
+    }
   };
 
   useEffect(() => {
-    const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
-      setUser(currentUser);
+    const unsubscribe = onAuthStateChanged(auth, async (currentUser) => {
+      setLoading(true);
+      if (currentUser) {
+        try {
+          const res = await axiosPublic.get(`/users/${currentUser.email}`);
+          setUser({ ...currentUser, role: res.data?.role });
+        } catch (error) {
+          console.error("Error fetching user role:", error);
+          setUser(currentUser);
+        }
+      } else {
+        setUser(null);
+      }
       setLoading(false);
-      console.log(currentUser);
     });
-    return () => {
-      unsubscribe();
-    };
-  }, []);
+    return () => unsubscribe();
+  }, [axiosPublic]);
 
   const authInfo = {
     createNewUser,
     user,
     loading,
     loginUser,
-    signInwithGoogle,
+    signInWithGoogle,
     logOutUser,
     updateUserProfile,
   };

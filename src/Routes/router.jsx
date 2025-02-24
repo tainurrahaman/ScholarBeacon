@@ -6,6 +6,8 @@ import SignUp from "../component/Pages/SignUp";
 import AllScholarships from "../component/Pages/AllScholarship";
 import ScholarshipDetails from "../component/Pages/ScholarshipDetails";
 import PrivateRoute from "./PrivateRoute";
+import AdminRoute from "./AdminRoute";
+import AdminDashBoard from "../component/DashBoard/AdminDashBoard";
 
 const router = createBrowserRouter([
   {
@@ -36,6 +38,14 @@ const router = createBrowserRouter([
       <PrivateRoute>
         <ScholarshipDetails />
       </PrivateRoute>
+    ),
+  },
+  {
+    path: "/admin",
+    element: (
+      <AdminRoute>
+        <AdminDashBoard />
+      </AdminRoute>
     ),
   },
 ]);

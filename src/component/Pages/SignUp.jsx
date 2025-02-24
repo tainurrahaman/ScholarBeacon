@@ -28,6 +28,8 @@ const SignUp = () => {
           const userInfo = {
             name: data.name,
             email: data.email,
+            image: data.photo,
+            role: "user",
           };
           axiosPublic.post("/users", userInfo).then((res) => {
             if (res.data.insertedId) {

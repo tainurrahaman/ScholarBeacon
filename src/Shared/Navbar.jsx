@@ -8,13 +8,17 @@ const Navbar = () => {
 
   const handleLogout = () => {
     logOutUser()
-      .then(() => {
-        toast("Sign out Successfully");
-      })
-      .catch((err) => {
-        toast(err.message);
-      });
+      .then(() => toast.success("Sign out Successfully"))
+      .catch((err) => toast.error(err.message));
   };
+
+  const dashLink = user?.role
+    ? user.role === "admin"
+      ? "/admin"
+      : user.role === "moderator"
+      ? "/moderator"
+      : "/user"
+    : "/";
 
   const links = (
     <>
@@ -23,16 +27,22 @@ const Navbar = () => {
           Home
         </Link>
       </li>
-      <li>
-        <a>Item 3</a>
-      </li>
+      {user?.role && (
+        <li>
+          <Link to={dashLink} className="font-bold text-[16px]">
+            Dashboard
+          </Link>
+        </li>
+      )}
     </>
   );
+
   return (
     <div className="navbar bg-base-100">
       <div className="navbar-start">
+        {/* Mobile Menu */}
         <div className="dropdown">
-          <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
+          <button tabIndex={0} className="btn btn-ghost lg:hidden">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               className="h-5 w-5"
@@ -47,7 +57,7 @@ const Navbar = () => {
                 d="M4 6h16M4 12h8m-8 6h16"
               />
             </svg>
-          </div>
+          </button>
           <ul
             tabIndex={0}
             className="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow"
@@ -55,22 +65,25 @@ const Navbar = () => {
             {links}
           </ul>
         </div>
+
         <div className="flex items-center gap-2">
-          {" "}
-          <img src={logo} alt="" />
-          <a className="text-[20px] hidden md:block font-bold">ScholarBeacon</a>
+          <img src={logo} alt="Logo" className="h-8 w-8" />
+          <Link to="/" className="text-[20px] hidden md:block font-bold">
+            ScholarBeacon
+          </Link>
         </div>
       </div>
+
       <div className="navbar-end hidden lg:flex">
         <ul className="menu menu-horizontal px-1">{links}</ul>
+
         {user?.email ? (
-          <Link
+          <button
             onClick={handleLogout}
-            to="/"
             className="btn bg-[#0AA592] text-white hover:bg-slate-800"
           >
             Logout
-          </Link>
+          </button>
         ) : (
           <Link
             to="/login"
@@ -80,7 +93,8 @@ const Navbar = () => {
           </Link>
         )}
       </div>
-      <ToastContainer></ToastContainer>
+
+      <ToastContainer />
     </div>
   );
 };

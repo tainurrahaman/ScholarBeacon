@@ -11,7 +11,6 @@ const AllScholarships = () => {
 
   useEffect(() => {
     axiosPublic.get("/scholarships").then((result) => {
-      console.log(result.data);
       setScholarships(result.data);
       setFilteredScholarships(result.data);
     });
