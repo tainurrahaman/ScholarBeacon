@@ -1,8 +1,10 @@
 import React, { useEffect, useState } from "react";
 import UseAxiosPublic from "../../Hook/UseAxiosPublic";
+import { Link, useNavigate } from "react-router-dom";
 
 const AllScholarships = () => {
   const axiosPublic = UseAxiosPublic();
+  const navigate = useNavigate();
   const [scholarships, setScholarships] = useState([]);
   const [searchTerm, setSearchTerm] = useState("");
   const [filteredScholarships, setFilteredScholarships] = useState([]);
@@ -89,12 +91,12 @@ const AllScholarships = () => {
 
               <div className="text-center mt-3">
                 <button
+                  onClick={() => {
+                    navigate(`/scholarship/${scholarship._id}`, {
+                      state: { scholarship },
+                    });
+                  }}
                   className="px-4 py-2 bg-green-500 text-white rounded-lg hover:bg-green-600"
-                  onClick={() =>
-                    alert(
-                      `Navigate to details for ${scholarship.university_name}`
-                    )
-                  }
                 >
                   View Details
                 </button>

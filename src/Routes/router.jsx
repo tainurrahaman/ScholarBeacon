@@ -4,6 +4,8 @@ import Home from "../Layouts/Home/Home";
 import Login from "../component/Pages/Login";
 import SignUp from "../component/Pages/SignUp";
 import AllScholarships from "../component/Pages/AllScholarship";
+import ScholarshipDetails from "../component/Pages/ScholarshipDetails";
+import PrivateRoute from "./PrivateRoute";
 
 const router = createBrowserRouter([
   {
@@ -27,6 +29,14 @@ const router = createBrowserRouter([
   {
     path: "/allScholarship",
     element: <AllScholarships></AllScholarships>,
+  },
+  {
+    path: "/scholarship/:id",
+    element: (
+      <PrivateRoute>
+        <ScholarshipDetails />
+      </PrivateRoute>
+    ),
   },
 ]);
 
