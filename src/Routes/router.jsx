@@ -20,6 +20,7 @@ import AddScholarship from "../Layouts/ModeratorLayout/AddScholarship";
 import Profile from "../Shared/Profile";
 import ManageUser from "../Layouts/AdminLayout/ManageUser";
 import UpdateProfile from "../component/Pages/UpdateProfile";
+import AllReview from "../component/Pages/Allreview";
 
 const router = createBrowserRouter([
   {
@@ -116,8 +117,8 @@ const router = createBrowserRouter([
         element: <ManageScholarship></ManageScholarship>,
       },
       {
-        path: "allreviews",
-        element: <AllReviews></AllReviews>,
+        path: "allreview",
+        element: <AllReview></AllReview>,
       },
       {
         path: "allAppliedScholarship",

@@ -9,7 +9,6 @@ const Profile = () => {
 
   return (
     <div>
-      <Navbar></Navbar>
       <div className="w-10/12 mx-auto my-10 font-montseerat">
         <div className="mt-3 md:mt-10 flex items-center text-lg md:text-3xl">
           <h2 className="font-semibold md:font-bold  flex">

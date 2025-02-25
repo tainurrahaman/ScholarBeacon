@@ -34,7 +34,7 @@ const ModeratorDashBoard = () => {
           </li>
           <li>
             <NavLink
-              to="allreviews"
+              to="allreview"
               className={({ isActive }) =>
                 `block p-2 rounded ${
                   isActive ? "bg-gray-300" : "hover:bg-gray-200"
