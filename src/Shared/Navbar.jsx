@@ -1,14 +1,18 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import logo from "../assets/icon.png";
 import UseAuth from "../Hook/UseAuth";
 import { toast, ToastContainer } from "react-toastify";
 
 const Navbar = () => {
   const { user, logOutUser } = UseAuth();
+  const navigate = useNavigate();
 
   const handleLogout = () => {
     logOutUser()
-      .then(() => toast.success("Sign out Successfully"))
+      .then(() => {
+        toast.success("Sign out Successfully");
+        navigate("/");
+      })
       .catch((err) => toast.error(err.message));
   };
 
@@ -68,7 +72,7 @@ const Navbar = () => {
 
         <div className="flex items-center gap-2">
           <img src={logo} alt="Logo" className="h-8 w-8" />
-          <Link to="/" className="text-[20px] hidden md:block font-bold">
+          <Link className="text-[20px] hidden md:block font-bold">
             ScholarBeacon
           </Link>
         </div>
@@ -93,8 +97,7 @@ const Navbar = () => {
           </Link>
         )}
       </div>
-
-      <ToastContainer />
+      <ToastContainer></ToastContainer>
     </div>
   );
 };

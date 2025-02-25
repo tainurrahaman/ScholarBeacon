@@ -68,6 +68,18 @@ const AdminDashBoard = () => {
               Add Scholarship
             </NavLink>
           </li>
+          <li>
+            <NavLink
+              to="manageUsers"
+              className={({ isActive }) =>
+                `block p-2 rounded ${
+                  isActive ? "bg-gray-300" : "hover:bg-gray-200"
+                }`
+              }
+            >
+              Manage Users
+            </NavLink>
+          </li>
         </ul>
       </nav>
 

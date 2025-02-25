@@ -11,7 +11,6 @@ import AdminDashBoard from "../component/DashBoard/AdminDashBoard";
 import ModeratorRoute from "./ModeratorRoute";
 import ModeratorDashBoard from "../component/DashBoard/ModeratorDashBoard";
 import UserDashBoard from "../component/DashBoard/UserDashBoard";
-import UserProfile from "../Layouts/UserLayout/UserProfile";
 import UserApplication from "../Layouts/UserLayout/UserApplication";
 import UserReviews from "../Layouts/UserLayout/UserReviews";
 import ManageScholarship from "../Layouts/ModeratorLayout/ManageScholarship";
@@ -19,6 +18,8 @@ import AllReviews from "../component/Pages/Allreview";
 import AllappliedScholarship from "../Layouts/ModeratorLayout/AllappliedScholarship";
 import AddScholarship from "../Layouts/ModeratorLayout/AddScholarship";
 import Profile from "../Shared/Profile";
+import ManageUser from "../Layouts/AdminLayout/ManageUser";
+import UpdateProfile from "../component/Pages/UpdateProfile";
 
 const router = createBrowserRouter([
   {
@@ -38,6 +39,10 @@ const router = createBrowserRouter([
   {
     path: "/signup",
     element: <SignUp></SignUp>,
+  },
+  {
+    path: "/updateProfile",
+    element: <UpdateProfile></UpdateProfile>,
   },
   {
     path: "/allScholarship",
@@ -60,6 +65,10 @@ const router = createBrowserRouter([
     ),
     children: [
       {
+        index: true,
+        element: <Profile></Profile>,
+      },
+      {
         path: "profile",
         element: <Profile></Profile>,
       },
@@ -67,6 +76,22 @@ const router = createBrowserRouter([
       {
         path: "addScholarship",
         element: <AddScholarship></AddScholarship>,
+      },
+      {
+        path: "manageScholarship",
+        element: <ManageScholarship></ManageScholarship>,
+      },
+      {
+        path: "allAppliedScholarship",
+        element: <AllappliedScholarship></AllappliedScholarship>,
+      },
+      {
+        path: "manageUsers",
+        element: <ManageUser></ManageUser>,
+      },
+      {
+        path: "allreviews",
+        element: <AllReviews></AllReviews>,
       },
     ],
   },
@@ -78,6 +103,10 @@ const router = createBrowserRouter([
       </ModeratorRoute>
     ),
     children: [
+      {
+        index: true,
+        element: <Profile></Profile>,
+      },
       {
         path: "profile",
         element: <Profile></Profile>,
@@ -109,8 +138,12 @@ const router = createBrowserRouter([
     ),
     children: [
       {
+        index: true,
+        element: <Profile></Profile>,
+      },
+      {
         path: "profile",
-        element: <UserProfile></UserProfile>,
+        element: <Profile></Profile>,
       },
       {
         path: "applications",
