@@ -14,6 +14,11 @@ import UserDashBoard from "../component/DashBoard/UserDashBoard";
 import UserProfile from "../Layouts/UserLayout/UserProfile";
 import UserApplication from "../Layouts/UserLayout/UserApplication";
 import UserReviews from "../Layouts/UserLayout/UserReviews";
+import ManageScholarship from "../Layouts/ModeratorLayout/ManageScholarship";
+import AllReviews from "../component/Pages/Allreview";
+import AllappliedScholarship from "../Layouts/ModeratorLayout/AllappliedScholarship";
+import AddScholarship from "../Layouts/ModeratorLayout/AddScholarship";
+import Profile from "../Shared/Profile";
 
 const router = createBrowserRouter([
   {
@@ -53,6 +58,17 @@ const router = createBrowserRouter([
         <AdminDashBoard />
       </AdminRoute>
     ),
+    children: [
+      {
+        path: "profile",
+        element: <Profile></Profile>,
+      },
+
+      {
+        path: "addScholarship",
+        element: <AddScholarship></AddScholarship>,
+      },
+    ],
   },
   {
     path: "/moderator",
@@ -61,6 +77,28 @@ const router = createBrowserRouter([
         <ModeratorDashBoard></ModeratorDashBoard>
       </ModeratorRoute>
     ),
+    children: [
+      {
+        path: "profile",
+        element: <Profile></Profile>,
+      },
+      {
+        path: "manageScholarship",
+        element: <ManageScholarship></ManageScholarship>,
+      },
+      {
+        path: "allreviews",
+        element: <AllReviews></AllReviews>,
+      },
+      {
+        path: "allAppliedScholarship",
+        element: <AllappliedScholarship></AllappliedScholarship>,
+      },
+      {
+        path: "addScholarship",
+        element: <AddScholarship></AddScholarship>,
+      },
+    ],
   },
   {
     path: "/user",

@@ -37,13 +37,9 @@ const AuthProvider = ({ children }) => {
     }
   };
 
-  const signInWithGoogle = async () => {
+  const signInWithGoogle = () => {
     setLoading(true);
-    try {
-      return await signInWithPopup(auth, googleProvider);
-    } finally {
-      setLoading(false);
-    }
+    return signInWithPopup(auth, googleProvider);
   };
 
   const updateUserProfile = async (name, photo) => {
