@@ -21,20 +21,12 @@ const AuthProvider = ({ children }) => {
 
   const createNewUser = async (email, password) => {
     setLoading(true);
-    try {
-      return await createUserWithEmailAndPassword(auth, email, password);
-    } finally {
-      setLoading(false);
-    }
+    return await createUserWithEmailAndPassword(auth, email, password);
   };
 
   const loginUser = async (email, password) => {
     setLoading(true);
-    try {
-      return await signInWithEmailAndPassword(auth, email, password);
-    } finally {
-      setLoading(false);
-    }
+    return await signInWithEmailAndPassword(auth, email, password);
   };
 
   const signInWithGoogle = () => {
@@ -44,14 +36,10 @@ const AuthProvider = ({ children }) => {
 
   const updateUserProfile = async (name, photo) => {
     setLoading(true);
-    try {
-      return await updateProfile(auth.currentUser, {
-        displayName: name,
-        photoURL: photo,
-      });
-    } finally {
-      setLoading(false);
-    }
+    return await updateProfile(auth.currentUser, {
+      displayName: name,
+      photoURL: photo,
+    });
   };
 
   const logOutUser = async () => {
@@ -62,6 +50,7 @@ const AuthProvider = ({ children }) => {
       setLoading(false);
     }
   };
+  console.log(user);
 
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, async (currentUser) => {
@@ -69,23 +58,28 @@ const AuthProvider = ({ children }) => {
       if (currentUser) {
         try {
           const res = await axiosPublic.get(`/users/${currentUser.email}`);
-          setUser({ ...currentUser, role: res.data?.role, id: res.data?._id });
+
+          if (res.data) {
+            setUser({ ...currentUser, role: res.data.role, id: res.data._id });
+          } else {
+            setUser(currentUser);
+          }
         } catch (error) {
           console.error("Error fetching user role:", error);
-          setUser(currentUser);
-          console.log(currentUser);
         }
       } else {
         setUser(null);
       }
       setLoading(false);
     });
+
     return () => unsubscribe();
   }, [axiosPublic]);
 
   const authInfo = {
     createNewUser,
     user,
+    setUser,
     loading,
     loginUser,
     signInWithGoogle,

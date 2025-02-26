@@ -18,7 +18,7 @@ const Profile = () => {
             <ImHappy></ImHappy>
           </div>
         </div>
-        <div className="flex  justify-evenly items-center border-2 mx-10 mt-10 p-5 rounded-lg">
+        <div className="flex  justify-evenly items-center border-2 border-gray-400 mx-10 mt-10 p-5 rounded-lg">
           <div>
             {" "}
             <img

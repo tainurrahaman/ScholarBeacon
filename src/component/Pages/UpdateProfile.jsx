@@ -2,10 +2,15 @@ import { toast, ToastContainer } from "react-toastify";
 import { useNavigate } from "react-router-dom";
 import UseAuth from "../../Hook/UseAuth";
 import Navbar from "../../Shared/Navbar";
+import UseAxiosPublic from "../../Hook/UseAxiosPublic";
+import useTanQuery from "../../Hook/UseTanQuery";
+import Swal from "sweetalert2";
 
 const UpdateProfile = () => {
-  const { updateUserProfile } = UseAuth();
+  const { updateUserProfile, user } = UseAuth();
   const navigate = useNavigate();
+  const axiosPublic = UseAxiosPublic();
+  const [, refetch] = useTanQuery();
 
   const handleUpdate = (e) => {
     e.preventDefault();
@@ -15,8 +20,25 @@ const UpdateProfile = () => {
 
     updateUserProfile(name, photo)
       .then(() => {
-        navigate("/");
-        toast("Profile update Successfully");
+        const updatedInfo = {
+          email: user?.email,
+          name: name,
+          photo: photo,
+        };
+        axiosPublic.patch("/users", updatedInfo).then((res) => {
+          console.log(res.data);
+          if (res.data.modifiedCount > 0) {
+            Swal.fire({
+              position: "top-end",
+              icon: "success",
+              title: "Your profile updated successfully",
+              showConfirmButton: false,
+              timer: 1500,
+            });
+            refetch();
+            navigate(`/`);
+          }
+        });
       })
       .catch((err) => {
         toast(err.message);
