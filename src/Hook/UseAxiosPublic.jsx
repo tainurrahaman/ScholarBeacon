@@ -1,7 +1,8 @@
 import axios from "axios";
 
 const axiosPublic = axios.create({
-  baseURL: "https://scholarbeacon-e9e51.web.app",
+  // baseURL: "http://localhost:5000",
+  baseURL: "https://scholar-beacon-server.vercel.app",
 });
 const UseAxiosPublic = () => {
   return axiosPublic;

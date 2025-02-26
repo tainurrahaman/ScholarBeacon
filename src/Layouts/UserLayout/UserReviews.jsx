@@ -13,7 +13,6 @@ const UserReviews = ({ onDelete, onEdit }) => {
 
   useEffect(() => {
     axiosPublic.get(`/reviews/r_id/${user.id}`).then((res) => {
-      console.log(res.data);
       setReviews(res.data);
     });
   }, []);

@@ -22,10 +22,9 @@ const Login = () => {
       .then((result) => {
         navigate("/");
         toast("Successfully Login");
-        console.log(result);
       })
       .catch((error) => {
-        console.log(error);
+        toast(error);
       });
   };
 

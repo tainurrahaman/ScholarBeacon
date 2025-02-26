@@ -7,7 +7,6 @@ const AllReview = () => {
   const [reviews, setReviews] = useState([]);
   useEffect(() => {
     axiosPublic.get("/reviews").then((res) => {
-      console.log(res.data);
       setReviews(res.data);
     });
   }, []);

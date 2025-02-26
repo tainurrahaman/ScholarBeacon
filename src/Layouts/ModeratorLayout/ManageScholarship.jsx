@@ -10,7 +10,6 @@ const ManageScholarships = () => {
 
   useEffect(() => {
     axiosPublic.get("/scholarships").then((res) => {
-      console.log(res.data);
       setScholarships(res.data);
     });
   }, []);

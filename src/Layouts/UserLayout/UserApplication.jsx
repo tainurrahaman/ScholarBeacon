@@ -42,18 +42,18 @@ const UserApplications = () => {
   };
 
   const handleSubmitReview = () => {
-    // Submit review (API call logic)
-    console.log({
-      scholarshipName: selectedApplication.scholarshipName,
-      universityName: selectedApplication.universityName,
-      universityId: selectedApplication.universityId,
-      userName: selectedApplication.userName,
-      userEmail: selectedApplication.userEmail,
-      rating,
-      review,
-      reviewDate: new Date(),
-    });
-    setShowReviewModal(false); // Close the modal after submission
+    // // Submit review (API call logic)
+    // console.log({
+    //   scholarshipName: selectedApplication.scholarshipName,
+    //   universityName: selectedApplication.universityName,
+    //   universityId: selectedApplication.universityId,
+    //   userName: selectedApplication.userName,
+    //   userEmail: selectedApplication.userEmail,
+    //   rating,
+    //   review,
+    //   reviewDate: new Date(),
+    // });
+    // setShowReviewModal(false); // Close the modal after submission
   };
 
   return (

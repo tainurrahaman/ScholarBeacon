@@ -2,11 +2,11 @@ import Lottie from "lottie-react";
 import { useForm } from "react-hook-form";
 import registerLottieData from "../../assets/lottie/signup.json";
 import { Link, useNavigate } from "react-router-dom";
-import { FcGoogle } from "react-icons/fc";
 import UseAuth from "../../Hook/UseAuth";
 import UseAxiosPublic from "../../Hook/UseAxiosPublic";
 import Swal from "sweetalert2";
 import SocialLogin from "../../Shared/SocialLogin";
+import { toast, ToastContainer } from "react-toastify";
 
 const SignUp = () => {
   const axiosPublic = UseAxiosPublic();
@@ -20,10 +20,8 @@ const SignUp = () => {
   } = useForm();
 
   const handleSignUp = (data) => {
-    console.log(data);
     createNewUser(data.email, data.password)
       .then((result) => {
-        // console.log(result.user);
         updateUserProfile(data.name, data.photo).then(() => {
           const userInfo = {
             name: data.name,
@@ -46,7 +44,7 @@ const SignUp = () => {
         });
       })
       .catch((error) => {
-        console.log(error.message);
+        toast(error.message);
       });
   };
 
@@ -99,11 +97,38 @@ const SignUp = () => {
                 <p className="text-red-500">{errors.photoURL.message}</p>
               )}
 
-              <label className="fieldset-label font-bold text-slate-600 text-[15px]">
+              {/* <label className="fieldset-label font-bold text-slate-600 text-[15px]">
                 Password
               </label>
               <input
                 {...register("password", { required: "Password is required" })}
+                type="password"
+                className="input"
+                placeholder="Enter your Password"
+              />
+              {errors.password && (
+                <p className="text-red-500">{errors.password.message}</p>
+              )} */}
+
+              <label className="fieldset-label font-bold text-slate-600 text-[15px]">
+                Password
+              </label>
+              <input
+                {...register("password", {
+                  required: "Password is required",
+                  minLength: {
+                    value: 6,
+                    message: "Password must be at least 6 characters",
+                  },
+                  validate: {
+                    hasUpperCase: (value) =>
+                      /[A-Z]/.test(value) ||
+                      "Password must have at least one uppercase letter",
+                    hasSpecialChar: (value) =>
+                      /[!@#$%^&*(),.?":{}|<>]/.test(value) ||
+                      "Password must have at least one special character",
+                  },
+                })}
                 type="password"
                 className="input"
                 placeholder="Enter your Password"
@@ -133,6 +158,7 @@ const SignUp = () => {
           </div>
         </div>
       </div>
+      <ToastContainer></ToastContainer>
     </div>
   );
 };

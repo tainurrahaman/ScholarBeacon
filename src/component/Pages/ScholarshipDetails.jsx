@@ -15,7 +15,6 @@ const ScholarshipDetails = () => {
 
   useEffect(() => {
     axiosPublic.get(`/reviews/${scholarship._id}`).then((result) => {
-      console.log(result.data);
       setReviews(result.data);
     });
   }, []);

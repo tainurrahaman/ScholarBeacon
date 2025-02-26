@@ -26,7 +26,7 @@ const UpdateProfile = () => {
           photo: photo,
         };
         axiosPublic.patch("/users", updatedInfo).then((res) => {
-          console.log(res.data);
+          res.data;
           if (res.data.modifiedCount > 0) {
             Swal.fire({
               position: "top-end",

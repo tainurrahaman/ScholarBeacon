@@ -39,7 +39,6 @@ const AddScholarship = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log(formData);
     // Handle form submission
   };
 

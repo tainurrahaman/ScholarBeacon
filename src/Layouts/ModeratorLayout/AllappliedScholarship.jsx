@@ -12,7 +12,6 @@ const AllappliedScholarship = () => {
 
   useEffect(() => {
     axiosPublic.get("/applications").then((res) => {
-      console.log(res.data);
       setApplications(res.data);
     });
   }, []);

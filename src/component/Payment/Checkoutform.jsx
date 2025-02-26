@@ -7,6 +7,7 @@ import {
 import React, { useEffect, useState } from "react";
 import UseAxiosPublic from "../../Hook/UseAxiosPublic";
 import { useLocation } from "react-router-dom";
+import { toast } from "react-toastify";
 
 const Checkoutform = () => {
   const stripe = useStripe();
@@ -15,7 +16,6 @@ const Checkoutform = () => {
   const axiosPublic = UseAxiosPublic();
   const [error, setError] = useState("");
   const { scholarship } = location.state || {};
-  console.log(scholarship);
 
   //   useEffect(() => {
   //     axiosPublic.post("/create-payment-intent");
@@ -38,10 +38,10 @@ const Checkoutform = () => {
       card,
     });
     if (error) {
-      console.log("payment error", error.message);
+      toast("payment error", error.message);
       setError(error.message);
     } else {
-      console.log("payment method", paymentMethod);
+      toast("payment method", paymentMethod);
       setError("");
     }
   };
