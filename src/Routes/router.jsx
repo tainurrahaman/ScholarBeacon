@@ -22,6 +22,7 @@ import ManageUser from "../Layouts/AdminLayout/ManageUser";
 import UpdateProfile from "../component/Pages/UpdateProfile";
 import AllReview from "../component/Pages/Allreview";
 import Payment from "../component/Payment/Payment";
+import ErrorPage from "../component/Pages/ErrorPage";
 
 const router = createBrowserRouter([
   {
@@ -166,6 +167,10 @@ const router = createBrowserRouter([
         element: <UserReviews></UserReviews>,
       },
     ],
+  },
+  {
+    path: "*",
+    element: <ErrorPage></ErrorPage>,
   },
 ]);
 
