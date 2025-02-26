@@ -2,8 +2,10 @@ import { useLocation, useNavigate } from "react-router-dom";
 import AllReviews from "./Allreview";
 import { useEffect, useState } from "react";
 import UseAxiosPublic from "../../Hook/UseAxiosPublic";
+import UseAuth from "../../Hook/UseAuth";
 
 const ScholarshipDetails = () => {
+  const { user } = UseAuth();
   const location = useLocation();
   const navigate = useNavigate();
   const [reviews, setReviews] = useState([]);
@@ -86,9 +88,20 @@ const ScholarshipDetails = () => {
 
         {/* Apply Button */}
         <div className="mt-6 text-center">
-          <button className="px-6 py-3 bg-green-500 text-white text-lg font-semibold rounded-lg hover:bg-green-600">
-            Apply for Scholarship
-          </button>
+          {user.role === "user" ? (
+            <button
+              onClick={() => {
+                navigate(`/payment`, {
+                  state: { scholarship },
+                });
+              }}
+              className="px-6 py-3 bg-green-500 text-white text-lg font-semibold rounded-lg hover:bg-green-600"
+            >
+              Apply for Scholarship
+            </button>
+          ) : (
+            ""
+          )}
         </div>
         <AllReviews reviews={reviews}></AllReviews>
       </div>

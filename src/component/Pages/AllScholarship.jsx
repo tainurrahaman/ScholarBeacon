@@ -91,7 +91,7 @@ const AllScholarships = () => {
               <div className="text-center mt-3">
                 <button
                   onClick={() => {
-                    navigate(`/scholarship/${scholarship._id}`, {
+                    navigate(`/scholarships/${scholarship._id}`, {
                       state: { scholarship },
                     });
                   }}

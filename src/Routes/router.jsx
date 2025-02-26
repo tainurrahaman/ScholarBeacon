@@ -21,6 +21,7 @@ import Profile from "../Shared/Profile";
 import ManageUser from "../Layouts/AdminLayout/ManageUser";
 import UpdateProfile from "../component/Pages/UpdateProfile";
 import AllReview from "../component/Pages/Allreview";
+import Payment from "../component/Payment/Payment";
 
 const router = createBrowserRouter([
   {
@@ -50,7 +51,16 @@ const router = createBrowserRouter([
     element: <AllScholarships></AllScholarships>,
   },
   {
-    path: "/scholarship/:id",
+    path: "payment",
+    element: (
+      <PrivateRoute>
+        {" "}
+        <Payment></Payment>,
+      </PrivateRoute>
+    ),
+  },
+  {
+    path: "/scholarships/:id",
     element: (
       <PrivateRoute>
         <ScholarshipDetails />
@@ -146,6 +156,7 @@ const router = createBrowserRouter([
         path: "profile",
         element: <Profile></Profile>,
       },
+
       {
         path: "applications",
         element: <UserApplication></UserApplication>,
