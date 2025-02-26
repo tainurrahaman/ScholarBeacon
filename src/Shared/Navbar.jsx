@@ -31,6 +31,11 @@ const Navbar = () => {
           Home
         </Link>
       </li>
+      <li>
+        <Link to="/allScholarship" className="font-bold text-[16px]">
+          All Scholarship
+        </Link>
+      </li>
       {user?.role && (
         <li>
           <Link to={dashLink} className="font-bold text-[16px]">
@@ -46,7 +51,7 @@ const Navbar = () => {
       <div className="navbar-start">
         {/* Mobile Menu */}
         <div className="dropdown">
-          <button tabIndex={0} className="btn btn-ghost lg:hidden">
+          <button tabIndex={0} className="btn btn-ghost md:hidden">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               className="h-5 w-5"
@@ -78,9 +83,11 @@ const Navbar = () => {
         </div>
       </div>
 
-      <div className="navbar-end hidden lg:flex">
+      {/* Desktop Menu */}
+      <div className="navbar-center hidden md:flex">
         <ul className="menu menu-horizontal px-1">{links}</ul>
-
+      </div>
+      <div className="navbar-end">
         {user?.email ? (
           <button
             onClick={handleLogout}

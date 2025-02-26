@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import UseAxiosPublic from "../../Hook/UseAxiosPublic";
 import { Link, useNavigate } from "react-router-dom";
+import Navbar from "../../Shared/Navbar";
 
 const AllScholarships = () => {
   const axiosPublic = UseAxiosPublic();
@@ -33,10 +34,13 @@ const AllScholarships = () => {
 
   return (
     <div className="all-scholarships-container p-6">
-      <h2 className="text-2xl font-bold text-center mb-4">All Scholarships</h2>
+      <Navbar></Navbar>
+      <h2 className="text-2xl font-bold text-start mt-10 mb-4">
+        All Scholarships
+      </h2>
 
       {/* Search Box */}
-      <div className="flex justify-center mb-6">
+      <div className="flex justify-start mb-6">
         <input
           type="text"
           placeholder="Search by Scholarship Name, University, or Degree..."
