@@ -1,98 +1,73 @@
 const Process = () => {
   return (
-    <div className="mt-24">
-      <h2 className="font-bold font-oswald text-5xl w-2/3 mx-auto  text-center text-slate-800">
+    <div className="mt-16 px-5 md:px-10 lg:mt-24">
+      <h2 className="font-bold font-oswald text-2xl md:text-5xl w-full lg:w-2/3 mx-auto text-center text-slate-800">
         Navigate scholarships with ease. Solutions that make your work easier.
       </h2>
-      <div className="flex justify-center w-2/3 mx-auto">
+      <div className="flex justify-center w-full md:w-2/3 mx-auto">
         <img
-          className="p-10"
+          className="p-5 md:p-10 max-w-full h-auto"
           src="https://i.ibb.co.com/GfyftF14/image-599-1.png"
           alt="Scholarship lifecycle image"
         />
       </div>
-      <h2 className="font-bold font-oswald text-3xl w-3/4 mx-auto  text-center text-slate-800">
+      <h2 className="font-bold font-oswald text-2xl md:text-3xl w-full md:w-3/4 mx-auto text-center text-slate-800">
         Empowering students and scholarship managers with innovative features.
         Free up time to focus on your mission and maximize your impact.
       </h2>
-      <div className="my-16 grid grid-cols-2 gap-10">
-        <div className="border border-gray-300 p-5 rounded-xl shadow-xl">
-          <h2 className="font-bold text-[22px] text-slate-800 pb-3">
-            Online applications and scholarship review
-          </h2>
-          <p className="text-[18px]">
-            Efficiently create or modify applications without technical support.
-            Leverage an easy-to-use online review system to streamline sorting,
-            scoring, and managing documents for a smoother, user-friendly
-            experience.
-          </p>
-        </div>
-        <div className="border border-gray-300 p-5 rounded-xl shadow-xl">
-          <h2 className="font-bold text-[22px] text-slate-800 pb-3">
-            Impact and outcome measurement
-          </h2>
-          <p className="text-[18px]">
-            Collect all types of data and stories from your applicants to
-            leverage in reporting and marketing materials.
-          </p>
-        </div>
-        <div className="border border-gray-300 p-5 rounded-xl shadow-xl">
-          <h2 className="font-bold text-[22px] text-slate-800 pb-3">
-            Focus on applicant experience
-          </h2>
-          <p className="text-[18px]">
-            Intuitive scholarship application software allows students to spend
-            less time navigating the submission process.
-          </p>
-        </div>
-        <div className="border border-gray-300 p-5 rounded-xl shadow-xl">
-          <h2 className="font-bold text-[22px] text-slate-800 pb-3">
-            Matching criteria
-          </h2>
-          <p className="text-[18px]">
-            With eligibility quizzes, access codes, and universal applications,
-            matching criteria features save valuable time and improve the
-            experience for applicants and administrators.
-          </p>
-        </div>
-        <div className="border border-gray-300 p-5 rounded-xl shadow-xl">
-          <h2 className="font-bold text-[22px] text-slate-800 pb-3">
-            Third-party recommendations
-          </h2>
-          <p className="text-[18px]">
-            Applicants can request third-party information, including letters of
-            recommendation and transcripts, in any required format.
-          </p>
-        </div>
-        <div className="border border-gray-300 p-5 rounded-xl shadow-xl">
-          <h2 className="font-bold text-[22px] text-slate-800 pb-3">
-            Reporting on all collected data
-          </h2>
-          <p className="text-[18px]">
-            Choose the data you wish to analyze and transfer it to our report
-            builder, where you can customize and dissect it according to your
-            preferences.
-          </p>
-        </div>
-        <div className="border border-gray-300 p-5 rounded-xl shadow-xl">
-          <h2 className="font-bold text-[22px] text-slate-800 pb-3">
-            Customizable forms with table and branching options
-          </h2>
-          <p className="text-[18px]">
-            Create specific questions and formats that align with the objectives
-            of different scholarships to ensure the collection of relevant and
-            comprehensive information.
-          </p>
-        </div>
-        <div className="border border-gray-300 p-5 rounded-xl shadow-xl">
-          <h2 className="font-bold text-[22px] text-slate-800 pb-3">
-            Automated communications
-          </h2>
-          <p className="text-[18px]">
-            Eliminate the need for manual work with automated emails and
-            notifications to streamline the communication flow.
-          </p>
-        </div>
+      <div className="my-10 md:my-16 grid grid-cols-1 md:grid-cols-2 gap-5 md:gap-10">
+        {[
+          {
+            title: "Online applications and scholarship review",
+            description:
+              "Efficiently create or modify applications without technical support. Leverage an easy-to-use online review system to streamline sorting, scoring, and managing documents for a smoother, user-friendly experience.",
+          },
+          {
+            title: "Impact and outcome measurement",
+            description:
+              "Collect all types of data and stories from your applicants to leverage in reporting and marketing materials.",
+          },
+          {
+            title: "Focus on applicant experience",
+            description:
+              "Intuitive scholarship application software allows students to spend less time navigating the submission process.",
+          },
+          {
+            title: "Matching criteria",
+            description:
+              "With eligibility quizzes, access codes, and universal applications, matching criteria features save valuable time and improve the experience for applicants and administrators.",
+          },
+          {
+            title: "Third-party recommendations",
+            description:
+              "Applicants can request third-party information, including letters of recommendation and transcripts, in any required format.",
+          },
+          {
+            title: "Reporting on all collected data",
+            description:
+              "Choose the data you wish to analyze and transfer it to our report builder, where you can customize and dissect it according to your preferences.",
+          },
+          {
+            title: "Customizable forms with table and branching options",
+            description:
+              "Create specific questions and formats that align with the objectives of different scholarships to ensure the collection of relevant and comprehensive information.",
+          },
+          {
+            title: "Automated communications",
+            description:
+              "Eliminate the need for manual work with automated emails and notifications to streamline the communication flow.",
+          },
+        ].map((feature, index) => (
+          <div
+            key={index}
+            className="border border-gray-300 p-5 rounded-xl shadow-xl"
+          >
+            <h2 className="font-bold text-lg md:text-[22px] text-slate-800 pb-3">
+              {feature.title}
+            </h2>
+            <p className="text-base md:text-[18px]">{feature.description}</p>
+          </div>
+        ))}
       </div>
     </div>
   );
