@@ -96,20 +96,6 @@ const SignUp = () => {
               {errors.photo && (
                 <p className="text-red-500">{errors.photoURL.message}</p>
               )}
-
-              {/* <label className="fieldset-label font-bold text-slate-600 text-[15px]">
-                Password
-              </label>
-              <input
-                {...register("password", { required: "Password is required" })}
-                type="password"
-                className="input"
-                placeholder="Enter your Password"
-              />
-              {errors.password && (
-                <p className="text-red-500">{errors.password.message}</p>
-              )} */}
-
               <label className="fieldset-label font-bold text-slate-600 text-[15px]">
                 Password
               </label>

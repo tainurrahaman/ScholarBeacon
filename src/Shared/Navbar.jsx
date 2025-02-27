@@ -89,12 +89,24 @@ const Navbar = () => {
       </div>
       <div className="navbar-end">
         {user?.email ? (
-          <button
-            onClick={handleLogout}
-            className="btn bg-[#0AA592] text-white hover:bg-slate-800"
-          >
-            Logout
-          </button>
+          <div className="flex gap-1">
+            <div className="relative group">
+              <img
+                src={user.photoURL}
+                alt="Profile"
+                className="w-10 h-10 rounded-full object-cover cursor-pointer"
+              />
+              <div className="absolute top-full left-1/2 transform -translate-x-1/2 bg-black text-white text-sm px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition-opacity">
+                {user.displayName}
+              </div>
+            </div>{" "}
+            <button
+              onClick={handleLogout}
+              className="btn bg-[#0AA592] text-white hover:bg-slate-800"
+            >
+              Logout
+            </button>
+          </div>
         ) : (
           <Link
             to="/login"

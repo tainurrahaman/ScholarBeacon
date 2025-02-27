@@ -29,7 +29,7 @@ const AuthProvider = ({ children }) => {
     return await signInWithEmailAndPassword(auth, email, password);
   };
 
-  const signInWithGoogle = () => {
+  const loginWithGoogle = () => {
     setLoading(true);
     return signInWithPopup(auth, googleProvider);
   };
@@ -54,6 +54,7 @@ const AuthProvider = ({ children }) => {
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, async (currentUser) => {
       setLoading(true);
+      console.log(currentUser);
       if (currentUser) {
         try {
           const res = await axiosPublic.get(`/users/${currentUser.email}`);
@@ -81,7 +82,7 @@ const AuthProvider = ({ children }) => {
     setUser,
     loading,
     loginUser,
-    signInWithGoogle,
+    loginWithGoogle,
     logOutUser,
     updateUserProfile,
   };
