@@ -35,7 +35,7 @@ const AllScholarships = () => {
   return (
     <div className="all-scholarships-container p-6">
       <Navbar></Navbar>
-      <h2 className="text-2xl font-bold text-start mt-10 mb-4">
+      <h2 className="text-2xl font-bold text-start mt-0 md:mt-10 mb-4">
         All Scholarships
       </h2>
 
@@ -63,46 +63,56 @@ const AllScholarships = () => {
               key={index}
               className="scholarship-card border p-4 rounded-lg shadow-lg"
             >
-              <img
-                src={scholarship.university_logo}
-                alt={`${scholarship.university_name} logo`}
-                className="w-16 h-16 mx-auto mb-2"
-              />
-              <h3 className="text-lg font-semibold text-center">
-                {scholarship.university_name}
-              </h3>
-              <p className="text-sm text-gray-700 text-center">
-                <strong>Category:</strong> {scholarship.scholarship_category}
-              </p>
-              <p className="text-sm text-gray-700 text-center">
-                <strong>Degree:</strong> {scholarship.subject_name}
-              </p>
-              <p className="text-sm text-gray-700 text-center">
-                <strong>Location:</strong> {scholarship.university_city},{" "}
-                {scholarship.university_country}
-              </p>
-              <p className="text-sm text-gray-700 text-center">
-                <strong>Deadline:</strong> {scholarship.application_deadline}
-              </p>
-              <p className="text-sm text-gray-700 text-center">
-                <strong>Application Fees:</strong> $
-                {scholarship.application_fees}
-              </p>
-              <p className="text-sm text-gray-700 text-center">
-                <strong>Posted:</strong> {scholarship.post_date}
-              </p>
-
-              <div className="text-center mt-3">
-                <button
-                  onClick={() => {
-                    navigate(`/scholarships/${scholarship._id}`, {
-                      state: { scholarship },
-                    });
-                  }}
-                  className="px-4 py-2 bg-green-500 text-white rounded-lg hover:bg-green-600"
-                >
-                  View Details
-                </button>
+              <div className="flex justify-evenly gap-5">
+                {" "}
+                <div>
+                  {" "}
+                  <img
+                    src={scholarship.university_logo}
+                    alt={`${scholarship.university_name} logo`}
+                    className="w-20 md:w-28 h-20 md:h-28 mx-auto mb-2"
+                  />
+                </div>
+                <div>
+                  {" "}
+                  <h3 className="text-lg font-semibold text-start">
+                    {scholarship.university_name}
+                  </h3>
+                  <p className="text-sm text-gray-700 text-start">
+                    <strong>Category:</strong>{" "}
+                    {scholarship.scholarship_category}
+                  </p>
+                  <p className="text-sm text-gray-700 text-start">
+                    <strong>Degree:</strong> {scholarship.subject_name}
+                  </p>
+                  <p className="text-sm text-gray-700 text-start">
+                    <strong>Location:</strong> {scholarship.university_city},{" "}
+                    {scholarship.university_country}
+                  </p>
+                  <p className="text-sm text-gray-700 text-start">
+                    <strong>Deadline:</strong>{" "}
+                    {scholarship.application_deadline}
+                  </p>
+                  <p className="text-sm text-gray-700 text-start">
+                    <strong>Application Fees:</strong> $
+                    {scholarship.application_fees}
+                  </p>
+                  <p className="text-sm text-gray-700 text-start">
+                    <strong>Posted:</strong> {scholarship.post_date}
+                  </p>
+                  <div className="text-center w-full mt-3">
+                    <button
+                      onClick={() => {
+                        navigate(`/scholarships/${scholarship._id}`, {
+                          state: { scholarship },
+                        });
+                      }}
+                      className="px-4 py-2 w-full btn btn-success border-none text-white rounded-lg hover:bg-slate-800"
+                    >
+                      View Details
+                    </button>
+                  </div>
+                </div>
               </div>
             </div>
           ))}
