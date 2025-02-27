@@ -1,56 +1,69 @@
-import React, { useEffect, useState } from "react";
-import UseAxiosPublic from "../../Hook/UseAxiosPublic";
-import { FaStar } from "react-icons/fa";
+import { FaQuoteLeft, FaStar } from "react-icons/fa";
+import Slider from "react-slick";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
 
-const AllReview = () => {
-  const axiosPublic = UseAxiosPublic();
-  const [reviews, setReviews] = useState([]);
-  useEffect(() => {
-    axiosPublic.get("/reviews").then((res) => {
-      setReviews(res.data);
-    });
-  }, []);
+const AllReview = ({ reviews }) => {
+  if (reviews.length < 1) {
+    return (
+      <div className="text-center my-10">
+        <h2 className="text-2xl font-bold text-gray-700">
+          No review available for this Scholarship
+        </h2>
+      </div>
+    );
+  }
 
-  const handleDelete = (id) => {
-    if (window.confirm("Are you sure you want to delete this review?")) {
-      setReviews(reviews.filter((review) => review.id !== id));
-      alert("Review deleted successfully!");
-    }
+  // Carousel settings
+  const sliderSettings = {
+    dots: true,
+    infinite: true,
+    speed: 500,
+    slidesToShow: 1,
+    slidesToScroll: 1,
+    autoplay: true,
+    autoplaySpeed: 3000,
   };
 
   return (
     <div className="container mx-auto p-6">
-      <h2 className="text-2xl font-bold mb-4">All Reviews</h2>
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
-        {reviews.map((review) => (
-          <div key={review._id} className="p-4 shadow-lg rounded-lg border">
-            <div className="flex items-center gap-4">
-              <img
-                src={review.reviewerImage}
-                alt={review.reviewerName}
-                className="w-12 h-12 rounded-full border"
-              />
-              <div>
-                <h3 className="font-semibold">{review.reviewerName}</h3>
-                <p className="text-sm text-gray-500">{review.review_date}</p>
+      {/* Section Title */}
+      <h2 className="text-2xl text-center font-bold my-4">All Reviews</h2>
+
+      {/* Review Slider for Highlighted Reviews */}
+      <div className="max-w-2xl mx-auto mb-8">
+        <Slider {...sliderSettings}>
+          {reviews.map((review) => (
+            <div
+              key={review._id}
+              className="p-6 bg-gray-800 text-white rounded-lg shadow-lg w-full"
+            >
+              <FaQuoteLeft className="text-yellow-400 text-2xl mb-3" />
+              <p className="text-sm md:text-lg italic">
+                "{review.reviewer_comments}"
+              </p>
+              <div className="flex items-center gap-4 mt-4">
+                <img
+                  src={review.reviewerImage}
+                  alt={review.reviewerName}
+                  className="w-16 md:w-24 h-16 md:h-24 rounded-full border-2 border-yellow-400"
+                />
+                <div>
+                  <h3 className="text-yellow-400 font-semibold text-2xl">
+                    {review.reviewer_name}
+                  </h3>
+                  <p className="text-sm md:text-xl text-gray-400 flex items-center gap-1">
+                    {review.rating_point}{" "}
+                    <FaStar className="text-yellow-300"></FaStar>
+                  </p>
+                  <p className="text-sm md:text-xl text-gray-400">
+                    {review.review_date}
+                  </p>
+                </div>
               </div>
             </div>
-            <div className="mt-3">
-              <h4 className="font-semibold">{review.university}</h4>
-              <p className="text-sm text-gray-600">{review.subject}</p>
-            </div>
-            <div className="flex items-center gap-1 mt-2 text-yellow-500">
-              <FaStar size={16} /> <span>{review.rating_point}</span>
-            </div>
-            <p className="text-sm mt-2">{review.reviewer_comments}</p>
-            <button
-              className="mt-4 w-full bg-red-500 text-white py-2 rounded-lg hover:bg-red-600"
-              onClick={() => handleDelete(review.id)}
-            >
-              Delete
-            </button>
-          </div>
-        ))}
+          ))}
+        </Slider>
       </div>
     </div>
   );
