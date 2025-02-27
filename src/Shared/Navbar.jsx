@@ -16,13 +16,12 @@ const Navbar = () => {
       .catch((err) => toast.error(err.message));
   };
 
-  const dashLink = user?.role
-    ? user.role === "admin"
+  const dashLink =
+    user?.role === "admin"
       ? "/admin"
-      : user.role === "moderator"
+      : user?.role === "moderator"
       ? "/moderator"
-      : "/user"
-    : "/";
+      : "/user";
 
   const links = (
     <>

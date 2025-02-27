@@ -6,7 +6,7 @@ import Swal from "sweetalert2";
 import { toast, ToastContainer } from "react-toastify";
 
 const SocialLogin = () => {
-  const { loginWithGoogle, setUser, updateUserProfile } = UseAuth();
+  const { loginWithGoogle, updateUserProfile } = UseAuth();
   const axiosPublic = UseAxiosPublic();
   const navigate = useNavigate();
 

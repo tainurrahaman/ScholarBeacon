@@ -42,10 +42,10 @@ const AuthProvider = ({ children }) => {
     });
   };
 
-  const logOutUser = async () => {
+  const logOutUser = () => {
     setLoading(true);
     try {
-      return await signOut(auth);
+      return signOut(auth);
     } finally {
       setLoading(false);
     }

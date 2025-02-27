@@ -8,8 +8,8 @@ const UserDashBoard = () => {
       <Navbar></Navbar>
       <div className="flex">
         {/* Sidebar Navigation */}
-        <nav className="w-64 bg-white p-5 shadow-lg ">
-          <h2 className="text-xl font-bold mb-4">User Dashboard</h2>
+        <nav className="w-44 bg-white p-5 shadow-lg ">
+          <h2 className="text-lg font-bold mb-4">User Dashboard</h2>
           <ul className="space-y-3">
             <li>
               <NavLink
@@ -51,7 +51,7 @@ const UserDashBoard = () => {
         </nav>
 
         {/* Content Area */}
-        <div className="flex-1 p-5">
+        <div className="flex-1 p-3">
           <Outlet />
         </div>
       </div>
