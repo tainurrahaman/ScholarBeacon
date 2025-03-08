@@ -1,4 +1,4 @@
-import { Link, useNavigate } from "react-router-dom";
+import { Link, NavLink, useNavigate } from "react-router-dom";
 import logo from "../assets/icon.png";
 import UseAuth from "../Hook/UseAuth";
 import { toast, ToastContainer } from "react-toastify";
@@ -26,26 +26,41 @@ const Navbar = () => {
   const links = (
     <>
       <li>
-        <Link to="/" className="font-bold text-[16px] hover:text-[#0aa583]">
+        <NavLink
+          to="/"
+          className={({ isActive }) =>
+            `font-bold text-[16px] ${
+              isActive ? "text-[#0aa583]" : "hover:bg-gray-200"
+            } `
+          }
+        >
           Home
-        </Link>
+        </NavLink>
       </li>
       <li>
-        <Link
+        <NavLink
           to="/allScholarship"
-          className="font-bold text-[16px] hover:text-[#0aa583]"
+          className={({ isActive }) =>
+            `font-bold text-[16px] ${
+              isActive ? "text-[#0aa583]" : "hover:bg-gray-200"
+            } `
+          }
         >
           All Scholarship
-        </Link>
+        </NavLink>
       </li>
       {user?.role && (
         <li>
-          <Link
+          <NavLink
             to={dashLink}
-            className="font-bold text-[16px] hover:text-[#0aa583]"
+            className={({ isActive }) =>
+              `font-bold text-[16px] ${
+                isActive ? "text-[#0aa583]" : "hover:bg-gray-200"
+              } `
+            }
           >
             Dashboard
-          </Link>
+          </NavLink>
         </li>
       )}
     </>

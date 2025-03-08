@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import UseAxiosPublic from "../../Hook/UseAxiosPublic";
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import Navbar from "../../Shared/Navbar";
 
 const AllScholarships = () => {

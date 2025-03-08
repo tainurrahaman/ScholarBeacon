@@ -11,8 +11,8 @@ const ScholarshipDetails = () => {
   const navigate = useNavigate();
   const [reviews, setReviews] = useState([]);
   const { scholarship } = location.state || {};
-
   const axiosPublic = UseAxiosPublic();
+  console.log(scholarship);
 
   useEffect(() => {
     if (scholarship) {

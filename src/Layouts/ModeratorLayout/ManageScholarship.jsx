@@ -1,8 +1,10 @@
 import { useEffect, useState } from "react";
 import { FaEye, FaEdit, FaTrash } from "react-icons/fa";
 import UseAxiosPublic from "../../Hook/UseAxiosPublic";
+import { useNavigate } from "react-router-dom";
 
 const ManageScholarships = () => {
+  const navigate = useNavigate();
   const axiosPublic = UseAxiosPublic();
   const [scholarships, setScholarships] = useState([]);
   const [selectedScholarship, setSelectedScholarship] = useState(null);
@@ -62,7 +64,14 @@ const ManageScholarships = () => {
                 <td>{scholarship.degree}</td>
                 <td>${scholarship.application_fees}</td>
                 <td className="flex gap-2">
-                  <button className="btn btn-info btn-sm">
+                  <button
+                    onClick={() => {
+                      navigate(`/scholarships/${scholarship._id}`, {
+                        state: { scholarship },
+                      });
+                    }}
+                    className="btn btn-info btn-sm"
+                  >
                     <FaEye />
                   </button>
                   <button
