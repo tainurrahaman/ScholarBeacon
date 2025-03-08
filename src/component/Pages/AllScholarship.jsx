@@ -33,7 +33,7 @@ const AllScholarships = () => {
   };
 
   return (
-    <div className="all-scholarships-container p-6">
+    <div className="all-scholarships-container max-w-7xl mx-auto font-mulish">
       <Navbar></Navbar>
       <h2 className="text-2xl font-bold text-start mt-0 md:mt-10 mb-4">
         All Scholarships

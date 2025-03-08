@@ -4,7 +4,7 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 
 const AllReview = ({ reviews }) => {
-  if (reviews.length < 1) {
+  if (reviews?.length < 1) {
     return (
       <div className="text-center my-10">
         <h2 className="text-2xl font-bold text-gray-700">
@@ -33,7 +33,7 @@ const AllReview = ({ reviews }) => {
       {/* Review Slider for Highlighted Reviews */}
       <div className="max-w-2xl mx-auto mb-8">
         <Slider {...sliderSettings}>
-          {reviews.map((review) => (
+          {reviews?.map((review) => (
             <div
               key={review._id}
               className="p-6 bg-gray-800 text-white rounded-lg shadow-lg w-full"

@@ -26,18 +26,24 @@ const Navbar = () => {
   const links = (
     <>
       <li>
-        <Link to="/" className="font-bold text-[16px]">
+        <Link to="/" className="font-bold text-[16px] hover:text-[#0aa583]">
           Home
         </Link>
       </li>
       <li>
-        <Link to="/allScholarship" className="font-bold text-[16px]">
+        <Link
+          to="/allScholarship"
+          className="font-bold text-[16px] hover:text-[#0aa583]"
+        >
           All Scholarship
         </Link>
       </li>
       {user?.role && (
         <li>
-          <Link to={dashLink} className="font-bold text-[16px]">
+          <Link
+            to={dashLink}
+            className="font-bold text-[16px] hover:text-[#0aa583]"
+          >
             Dashboard
           </Link>
         </li>
