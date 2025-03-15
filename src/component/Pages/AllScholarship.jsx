@@ -2,8 +2,10 @@ import React, { useEffect, useState } from "react";
 import UseAxiosPublic from "../../Hook/UseAxiosPublic";
 import { useNavigate } from "react-router-dom";
 import Navbar from "../../Shared/Navbar";
+import UseAuth from "../../Hook/UseAuth";
 
 const AllScholarships = () => {
+  const { loading } = UseAuth();
   const axiosPublic = UseAxiosPublic();
   const navigate = useNavigate();
   const [scholarships, setScholarships] = useState([]);
@@ -33,7 +35,7 @@ const AllScholarships = () => {
   };
 
   return (
-    <div className="all-scholarships-container max-w-7xl mx-auto font-mulish">
+    <div className="all-scholarships-container max-w-7xl mx-auto font-mulish pt-14 lg:pt-20">
       <Navbar></Navbar>
       <h2 className="text-2xl font-bold text-start mt-0 md:mt-10 mb-4">
         All Scholarships
@@ -56,7 +58,7 @@ const AllScholarships = () => {
         </button>
       </div>
 
-      {filteredScholarships.length > 0 ? (
+      {filteredScholarships?.length > 0 ? (
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {filteredScholarships.map((scholarship, index) => (
             <div
@@ -119,11 +121,7 @@ const AllScholarships = () => {
         </div>
       ) : (
         <div className="text-center mt-6">
-          <img
-            src="https://example.com/no-scholarship.png"
-            alt="No Scholarships"
-            className="w-48 mx-auto"
-          />
+          {loading}
           <p className="text-lg font-semibold text-gray-600 mt-4">
             No scholarships available. Try a different search!
           </p>

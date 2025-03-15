@@ -94,74 +94,192 @@ const ManageScholarships = () => {
       </div>
 
       {isModalOpen && (
-        <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50">
-          <div className="bg-white p-6 rounded-lg w-96">
-            <h3 className="text-lg font-bold mb-4">Edit Scholarship</h3>
-            <input
-              value={selectedScholarship.name}
-              onChange={(e) =>
-                setSelectedScholarship({
-                  ...selectedScholarship,
-                  name: e.target.value,
-                })
-              }
-              placeholder="Scholarship Name"
-              className="w-full mb-2 p-2 border border-gray-300 rounded"
-            />
-            <input
-              value={selectedScholarship.university}
-              onChange={(e) =>
-                setSelectedScholarship({
-                  ...selectedScholarship,
-                  university: e.target.value,
-                })
-              }
-              placeholder="University Name"
-              className="w-full mb-2 p-2 border border-gray-300 rounded"
-            />
-            <input
-              value={selectedScholarship.category}
-              onChange={(e) =>
-                setSelectedScholarship({
-                  ...selectedScholarship,
-                  category: e.target.value,
-                })
-              }
-              placeholder="Category"
-              className="w-full mb-2 p-2 border border-gray-300 rounded"
-            />
-            <input
-              value={selectedScholarship.degree}
-              onChange={(e) =>
-                setSelectedScholarship({
-                  ...selectedScholarship,
-                  degree: e.target.value,
-                })
-              }
-              placeholder="Degree"
-              className="w-full mb-2 p-2 border border-gray-300 rounded"
-            />
-            <input
-              value={selectedScholarship.fees}
-              onChange={(e) =>
-                setSelectedScholarship({
-                  ...selectedScholarship,
-                  fees: e.target.value,
-                })
-              }
-              placeholder="Application Fees"
-              className="w-full mb-2 p-2 border border-gray-300 rounded"
-            />
-            <div className="flex justify-end gap-2 mt-4">
+        <div className="fixed inset-0 flex items-start justify-center bg-black bg-opacity-50 p-4">
+          <div className="bg-white p-6 rounded-lg w-full max-w-md md:max-w-2xl lg:max-w-3xl my-10">
+            <h3 className="text-xl font-bold mb-4">Edit Scholarship</h3>
+
+            {/* Responsive Grid */}
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm">
+              <div>
+                <label className="font-bold">University Name</label>
+                <input
+                  value={selectedScholarship.university_name}
+                  onChange={(e) =>
+                    setSelectedScholarship({
+                      ...selectedScholarship,
+                      university_name: e.target.value,
+                    })
+                  }
+                  placeholder="University Name"
+                  className="w-full p-2 border border-gray-300 rounded text-sm"
+                />
+              </div>
+              <div>
+                <label className="font-bold">Scholarship Category</label>
+                <input
+                  value={selectedScholarship.scholarship_category}
+                  onChange={(e) =>
+                    setSelectedScholarship({
+                      ...selectedScholarship,
+                      scholarship_category: e.target.value,
+                    })
+                  }
+                  placeholder="Category"
+                  className="w-full p-2 border border-gray-300 rounded text-sm"
+                />
+              </div>
+              <div>
+                <label className="font-bold">Required Degree</label>
+                <input
+                  value={selectedScholarship.degree}
+                  onChange={(e) =>
+                    setSelectedScholarship({
+                      ...selectedScholarship,
+                      degree: e.target.value,
+                    })
+                  }
+                  placeholder="Degree"
+                  className="w-full p-2 border border-gray-300 rounded text-sm"
+                />
+              </div>
+              <div>
+                <label className="font-bold">Application Fees</label>
+                <input
+                  value={`$${selectedScholarship.application_fees}`}
+                  onChange={(e) =>
+                    setSelectedScholarship({
+                      ...selectedScholarship,
+                      application_fees: e.target.value,
+                    })
+                  }
+                  placeholder="Application Fees"
+                  className="w-full p-2 border border-gray-300 rounded text-sm"
+                />
+              </div>
+              <div>
+                <label className="font-bold">Service Charge</label>
+                <input
+                  value={selectedScholarship.service_charge}
+                  onChange={(e) =>
+                    setSelectedScholarship({
+                      ...selectedScholarship,
+                      service_charge: e.target.value,
+                    })
+                  }
+                  placeholder="Service Charge"
+                  className="w-full p-2 border border-gray-300 rounded text-sm"
+                />
+              </div>
+              <div>
+                <label className="font-bold">Post Date</label>
+                <input
+                  type="date"
+                  value={selectedScholarship.post_date}
+                  onChange={(e) =>
+                    setSelectedScholarship({
+                      ...selectedScholarship,
+                      post_date: e.target.value,
+                    })
+                  }
+                  className="w-full p-2 border border-gray-300 rounded text-sm"
+                />
+              </div>
+              <div>
+                <label className="font-bold">Stipend</label>
+                <input
+                  value={selectedScholarship.stipend}
+                  onChange={(e) =>
+                    setSelectedScholarship({
+                      ...selectedScholarship,
+                      stipend: e.target.value,
+                    })
+                  }
+                  placeholder="Stipend"
+                  className="w-full p-2 border border-gray-300 rounded text-sm"
+                />
+              </div>
+              <div>
+                <label className="font-bold">University Logo</label>
+                <input
+                  type="file"
+                  onChange={(e) =>
+                    setSelectedScholarship({
+                      ...selectedScholarship,
+                      university_logo: e.target.files[0],
+                    })
+                  }
+                  className="w-full p-2 border border-gray-300 rounded text-sm"
+                />
+              </div>
+              <div>
+                <label className="font-bold">Subject Name</label>
+                <input
+                  value={selectedScholarship.subject_name}
+                  onChange={(e) =>
+                    setSelectedScholarship({
+                      ...selectedScholarship,
+                      subject_name: e.target.value,
+                    })
+                  }
+                  placeholder="Subject Name"
+                  className="w-full p-2 border border-gray-300 rounded text-sm"
+                />
+              </div>
+              <div>
+                <label className="font-bold">Application Deadline</label>
+                <input
+                  type="date"
+                  value={selectedScholarship.application_deadline}
+                  onChange={(e) =>
+                    setSelectedScholarship({
+                      ...selectedScholarship,
+                      application_deadline: e.target.value,
+                    })
+                  }
+                  className="w-full p-2 border border-gray-300 rounded text-sm"
+                />
+              </div>
+              <div>
+                <label className="font-bold">University City</label>
+                <input
+                  value={selectedScholarship.university_city}
+                  onChange={(e) =>
+                    setSelectedScholarship({
+                      ...selectedScholarship,
+                      university_city: e.target.value,
+                    })
+                  }
+                  placeholder="University City"
+                  className="w-full p-2 border border-gray-300 rounded text-sm"
+                />
+              </div>
+              <div>
+                <label className="font-bold">University Country</label>
+                <input
+                  value={selectedScholarship.university_country}
+                  onChange={(e) =>
+                    setSelectedScholarship({
+                      ...selectedScholarship,
+                      university_country: e.target.value,
+                    })
+                  }
+                  placeholder="University Country"
+                  className="w-full p-2 border border-gray-300 rounded text-sm"
+                />
+              </div>
+            </div>
+
+            {/* Buttons */}
+            <div className="flex flex-col md:flex-row justify-end gap-2 mt-4">
               <button
                 onClick={() => setIsModalOpen(false)}
-                className="px-4 py-2 bg-gray-500 text-white rounded"
+                className="px-4 py-2 bg-gray-500 text-white rounded w-full md:w-auto"
               >
                 Cancel
               </button>
               <button
                 onClick={handleUpdate}
-                className="px-4 py-2 bg-blue-500 text-white rounded"
+                className="px-4 py-2 bg-blue-500 text-white rounded w-full md:w-auto"
               >
                 Update
               </button>

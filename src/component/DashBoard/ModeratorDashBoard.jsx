@@ -4,7 +4,7 @@ import Navbar from "../../Shared/Navbar";
 
 const ModeratorDashBoard = () => {
   return (
-    <div className="max-w-7xl mx-auto font-mulish">
+    <div className="max-w-7xl mx-auto font-mulish pt-14 lg:pt-20">
       <Navbar></Navbar>
       <div className="flex">
         {/* Sidebar Navigation */}

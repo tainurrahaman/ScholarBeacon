@@ -2,10 +2,20 @@ import { Link, NavLink, useNavigate } from "react-router-dom";
 import logo from "../assets/icon.png";
 import UseAuth from "../Hook/UseAuth";
 import { toast, ToastContainer } from "react-toastify";
+import { useEffect, useState } from "react";
 
 const Navbar = () => {
   const { user, logOutUser } = UseAuth();
   const navigate = useNavigate();
+  const [isScrolled, setIsScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 50);
+    };
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   const handleLogout = () => {
     logOutUser()
@@ -29,8 +39,8 @@ const Navbar = () => {
         <NavLink
           to="/"
           className={({ isActive }) =>
-            `font-bold text-[16px] ${
-              isActive ? "text-[#0aa583]" : "hover:bg-gray-200"
+            `font-bold text-[16px] mr-2 ${
+              isActive ? "bg-[#0AA592] text-white" : "hover:bg-gray-200"
             } `
           }
         >
@@ -41,8 +51,8 @@ const Navbar = () => {
         <NavLink
           to="/allScholarship"
           className={({ isActive }) =>
-            `font-bold text-[16px] ${
-              isActive ? "text-[#0aa583]" : "hover:bg-gray-200"
+            `font-bold text-[16px] mr-2 ${
+              isActive ? "bg-[#0AA592] text-white" : "hover:bg-gray-200"
             } `
           }
         >
@@ -55,7 +65,7 @@ const Navbar = () => {
             to={dashLink}
             className={({ isActive }) =>
               `font-bold text-[16px] ${
-                isActive ? "text-[#0aa583]" : "hover:bg-gray-200"
+                isActive ? "bg-[#0AA592] text-white" : "hover:bg-gray-200"
               } `
             }
           >
@@ -67,7 +77,11 @@ const Navbar = () => {
   );
 
   return (
-    <div className="navbar bg-base-100">
+    <div
+      className={`navbar px-4 fixed top-0 left-0 w-full p-4 transition-all duration-300 z-50 ${
+        isScrolled ? "bg-white/30 backdrop-blur-md shadow-lg" : "bg-white"
+      }`}
+    >
       <div className="navbar-start">
         {/* Mobile Menu */}
         <div className="dropdown">
