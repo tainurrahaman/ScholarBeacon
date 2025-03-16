@@ -54,7 +54,6 @@ const AuthProvider = ({ children }) => {
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, async (currentUser) => {
       setLoading(true);
-      console.log(currentUser);
       if (currentUser) {
         try {
           const res = await axiosPublic.get(`/users/${currentUser.email}`);

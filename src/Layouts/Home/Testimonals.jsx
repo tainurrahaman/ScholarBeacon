@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react";
 import UseAxiosPublic from "../../Hook/UseAxiosPublic";
 import Slider from "react-slick";
-import axios from "axios";
 import { FaQuoteLeft, FaStar } from "react-icons/fa";
 
 const Testimonals = () => {
@@ -9,13 +8,8 @@ const Testimonals = () => {
   const [testimonals, setTestimonals] = useState([]);
 
   useEffect(() => {
-    // axiosPublic.get("/testimonals")
-    axios({
-      method: "get",
-      url: "http://localhost:5000/testimonals",
-    }).then((result) => {
+    axiosPublic.get("/testimonials").then((result) => {
       setTestimonals(result.data);
-      console.log(result.data);
     });
   }, []);
 
@@ -33,7 +27,7 @@ const Testimonals = () => {
   return (
     <div className="py-10 px-5 font-mulish my-2 md:my-5 lg:my-10">
       <h2 className="text-3xl md:text-5xl font-bold text-center mb-2 md:mb-8 text-gray-800 font-oswald">
-        Scholarship <span className="text-[#0F7771]">Winners</span>
+        Scholarship <span className="text-[#0F7771]">Winners</span>(Testimonals)
       </h2>
       <p className="text-[16px] md:text-2xl font-semibold md:font-bold text-center mb-8 md:mb-12 lg:mb-16 text-gray-800 w-full md:w-3/4 lg:w-2/3 mx-auto">
         ScholarBeacon has helped over 26 million students and families find
