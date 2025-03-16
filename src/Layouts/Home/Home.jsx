@@ -1,4 +1,5 @@
 import Banner from "./Banner";
+import FAQ from "./FAQ";
 import KeyFeatures from "./KeyFeatures";
 import Process from "./Process";
 import Testimonals from "./Testimonals";
@@ -12,6 +13,7 @@ const Home = () => {
       <KeyFeatures></KeyFeatures>
       <TopScholarship></TopScholarship>
       <Testimonals></Testimonals>
+      <FAQ></FAQ>
     </div>
   );
 };

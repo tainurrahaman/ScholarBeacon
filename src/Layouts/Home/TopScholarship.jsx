@@ -23,8 +23,8 @@ const TopScholarship = () => {
   const navigate = useNavigate();
 
   return (
-    <div className="py-10 px-5 bg-gray-100 font-mulish">
-      <h2 className="text-3xl md:text-5xl lg:text-6xl font-bold text-center mb-2 md:mb-8 text-gray-800 font-oswald">
+    <div className="py-10 px-5  font-mulish">
+      <h2 className="text-3xl md:text-5xl font-bold text-center mb-2 md:mb-8 text-gray-800 font-oswald">
         <span className="text-[#0F7771]">Top</span> Scholarships
       </h2>
       <p className="text-lg md:text-2xl font-semibold md:font-bold text-center mb-8 md:mb-12 lg:mb-16 text-gray-800">

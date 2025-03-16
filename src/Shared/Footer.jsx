@@ -4,7 +4,7 @@ import { SiFacebook } from "react-icons/si";
 
 const Footer = () => {
   return (
-    <footer className="bg-slate-800 text-neutral-content px-10 py-5 md:py-10">
+    <footer className="bg-slate-800 text-neutral-content px-10 py-5 md:py-10 md:mt-14 lg:mt-20">
       <div className="flex flex-col md:flex-row justify-between md:justify-evenly gap-5 md:gap-10 w-full">
         {" "}
         <aside className="text-center md:text-start">

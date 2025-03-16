@@ -32,7 +32,7 @@ const Testimonals = () => {
 
   return (
     <div className="py-10 px-5 font-mulish my-2 md:my-5 lg:my-10">
-      <h2 className="text-3xl md:text-5xl lg:text-6xl font-bold text-center mb-2 md:mb-8 text-gray-800 font-oswald">
+      <h2 className="text-3xl md:text-5xl font-bold text-center mb-2 md:mb-8 text-gray-800 font-oswald">
         Scholarship <span className="text-[#0F7771]">Winners</span>
       </h2>
       <p className="text-[16px] md:text-2xl font-semibold md:font-bold text-center mb-8 md:mb-12 lg:mb-16 text-gray-800 w-full md:w-3/4 lg:w-2/3 mx-auto">
