@@ -56,7 +56,7 @@ const AllScholarships = () => {
           All Scholarships
         </h2>
         {/* Search and Filter Section */}
-        <div className="flex flex-col md:flex-row justify-between gap-2 mb-6">
+        <div className="flex flex-col md:flex-row justify-between gap-2 mb-6 max-w-[350px] md:max-w-3xl lg:max-w-4xl mx-auto">
           <div className="flex justify-between items-center gap-2 sm:gap-5">
             {" "}
             <input
@@ -93,13 +93,13 @@ const AllScholarships = () => {
         </div>
 
         {filteredScholarships?.length > 0 ? (
-          <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4 max-w-[350px] md:max-w-4xl mx-auto">
             {filteredScholarships.map((scholarship, index) => (
               <div
                 key={index}
-                className="scholarship-card border p-4 rounded-lg shadow-lg"
+                className="scholarship-card  p-4 rounded-lg shadow-lg bg-white border border-gray-300 hover:shadow-xl hover:-translate-1 duration-800"
               >
-                <div className="flex flex-col justify-evenly gap-2 md:gap-3 lg:gap-5 flex-grow">
+                <div className="flex flex-col justify-evenly gap-2 md:gap-3 lg:gap-5 flex-grow ">
                   <div>
                     <img
                       src={scholarship.university_logo}
@@ -154,7 +154,7 @@ const AllScholarships = () => {
           <div className="text-center mt-6">
             {loading}
             <p className="text-lg font-semibold text-gray-600 mt-4">
-              No scholarships available. Try a different search!
+              Please wait some time
             </p>
           </div>
         )}
