@@ -39,10 +39,10 @@ const ScholarshipDetails = () => {
   }
 
   return (
-    <div>
+    <div className="pt-10 md:pt-14 lg:pt-20">
       <Navbar></Navbar>
-      <div className="flex justify-center items-center min-h-screen bg-gray-100 p-4 sm:p-6">
-        <div className="bg-white shadow-lg rounded-lg p-4 sm:p-6 w-full max-w-3xl">
+      <div className="flex justify-center items-center min-h-screen bg-gray-100 py-20">
+        <div className="bg-white shadow-lg rounded-lg p-4 sm:p-6 max-w-xs md:max-w-3xl">
           {/* University Logo and Details */}
           <div className="flex flex-col sm:flex-row gap-4 sm:gap-6">
             {/* University Logo */}
@@ -60,7 +60,7 @@ const ScholarshipDetails = () => {
             </div>
 
             {/* Scholarship Details */}
-            <div className="w-full sm:w-3/5 space-y-2 sm:space-y-3 text-gray-700">
+            <div className="w-full sm:w-3/5 space-y-1 md:space-y-2 text-gray-700">
               <p>
                 <strong>📍 Location:</strong> {scholarship.university_city},{" "}
                 {scholarship.university_country}

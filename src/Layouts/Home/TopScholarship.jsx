@@ -24,13 +24,13 @@ const TopScholarship = () => {
 
   return (
     <div className="py-10 px-5 bg-gray-100 font-mulish">
-      <h2 className="text-2xl md:text-5xl lg:text-6xl font-bold text-center mb-2 md:mb-8 text-gray-800 font-oswald">
+      <h2 className="text-3xl md:text-5xl lg:text-6xl font-bold text-center mb-2 md:mb-8 text-gray-800 font-oswald">
         Top Scholarships
       </h2>
-      <p className="text-lg md:text-2xl font-semibold md:font-bold text-center mb-8 text-gray-800">
+      <p className="text-lg md:text-2xl font-semibold md:font-bold text-center mb-8 md:mb-12 lg:mb-16 text-gray-800">
         Unlocking Opportunities for Academic Excellence
       </p>
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 px-10 lg:px-24">
         {topScholarships.map((scholarship, index) => (
           <div
             key={index}
@@ -39,31 +39,31 @@ const TopScholarship = () => {
             <img
               src={scholarship.university_logo}
               alt={`${scholarship.university_name} logo`}
-              className="w-36 lg:w-40 h-36 lg:h-40 object-contain mx-auto mb-4"
+              className="w-28 lg:w-40 h-28 lg:h-40 object-contain mx-auto mb-4"
             />
-            <h3 className="text-xl md:text-2xl font-semibold text-gray-900 text-center">
+            <h3 className="text-xl lg:font-bold font-semibold text-gray-900 text-center">
               {scholarship.university_name}
             </h3>
-            <p className="text-sm lg:text-lg text-gray-700 mt-2">
+            <p className="text-sm lg:text-[16px] text-gray-700 mt-2">
               <strong>Category:</strong> {scholarship.scholarship_category}
             </p>
-            <p className="text-sm lg:text-lg text-gray-700">
+            <p className="text-sm lg:text-[16px] text-gray-700">
               <strong>Location:</strong> {scholarship.university_city},{" "}
               {scholarship.university_country}
             </p>
-            <p className="text-sm lg:text-lg text-gray-700">
+            <p className="text-sm lg:text-[16px] text-gray-700">
               <strong>Subject:</strong> {scholarship.subject_name}
             </p>
-            <p className="text-sm lg:text-lg text-gray-700">
+            <p className="text-sm lg:text-[16px] text-gray-700">
               <strong>Deadline:</strong> {scholarship.application_deadline}
             </p>
-            <p className="text-sm lg:text-lg text-gray-700">
+            <p className="text-sm lg:text-[16px] text-gray-700">
               <strong>Posted:</strong> {scholarship.post_date}
             </p>
-            <p className="text-sm lg:text-lg text-gray-700">
+            <p className="text-sm lg:text-[16px] text-gray-700">
               <strong>Application Fees:</strong> ${scholarship.application_fees}
             </p>
-            <p className="text-sm lg:text-lg text-gray-600 mt-2">
+            <p className="text-sm lg:text-[16px] text-gray-600 mt-2">
               {scholarship.scholarship_description}
             </p>
           </div>
@@ -72,7 +72,7 @@ const TopScholarship = () => {
       <div className="flex justify-center mt-6">
         <Link
           to="/allScholarship"
-          className="bg-[#0AA592] font-semibold text-white px-6 py-2 rounded-lg shadow-md hover:bg-blue-700 transition"
+          className="bg-[#0AA592] font-semibold text-white px-6 py-2 rounded-lg shadow-md hover:bg-slate-800 transition"
         >
           All Scholarships
         </Link>
