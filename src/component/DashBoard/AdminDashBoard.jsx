@@ -1,9 +1,11 @@
 import React from "react";
 import { NavLink, Outlet } from "react-router-dom";
+import Navbar from "../../Shared/Navbar";
 
 const AdminDashBoard = () => {
   return (
     <div className="flex pt-14 lg:pt-20">
+      <Navbar></Navbar>
       {/* Sidebar Navigation */}
       <nav className="w-64 bg-white p-5 shadow-lg min-h-screen">
         <h2 className="text-xl font-bold mb-4">Admin Dashboard</h2>
