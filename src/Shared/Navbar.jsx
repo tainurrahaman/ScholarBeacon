@@ -39,8 +39,10 @@ const Navbar = () => {
         <NavLink
           to="/"
           className={({ isActive }) =>
-            `font-bold text-[16px] mr-2 ${
-              isActive ? "bg-[#0AA592] text-white" : "hover:bg-gray-200"
+            `font-bold text-[16px] mr-2 text-white ${
+              isActive
+                ? "bg-[#0AA592] text-white hover:bg-[#3b6b57]"
+                : "hover:bg-[#3b6b57] text-black"
             } `
           }
         >
@@ -51,8 +53,10 @@ const Navbar = () => {
         <NavLink
           to="/allScholarship"
           className={({ isActive }) =>
-            `font-bold text-[16px] mr-2 ${
-              isActive ? "bg-[#0AA592] text-white" : "hover:bg-gray-200"
+            `font-bold text-[16px] mr-2 text-white ${
+              isActive
+                ? "bg-[#0AA592] text-white hover:bg-[#3b6b57]"
+                : "hover:bg-[#3b6b57] text-black"
             } `
           }
         >
@@ -64,8 +68,10 @@ const Navbar = () => {
           <NavLink
             to={dashLink}
             className={({ isActive }) =>
-              `font-bold text-[16px] ${
-                isActive ? "bg-[#0AA592] text-white" : "hover:bg-gray-200"
+              `font-bold text-[16px] text-white ${
+                isActive
+                  ? "bg-[#0AA592] text-white hover:bg-[#3b6b57]"
+                  : "hover:bg-[#3b6b57] text-black"
               } `
             }
           >
@@ -79,7 +85,9 @@ const Navbar = () => {
   return (
     <div
       className={`navbar px-4 fixed top-0 left-0 w-full p-4 transition-all duration-300 z-50 ${
-        isScrolled ? "bg-white/30 backdrop-blur-md shadow-lg" : "bg-white"
+        isScrolled
+          ? "bg-[#1D293D]/70 backdrop-blur-md shadow-lg"
+          : "bg-[#1D293D]/90"
       }`}
     >
       <div className="navbar-start">
@@ -111,7 +119,7 @@ const Navbar = () => {
 
         <div className="flex items-center gap-2">
           <img src={logo} alt="Logo" className="h-8 w-8" />
-          <Link className="text-[20px] hidden md:block font-bold">
+          <Link className="text-[20px] hidden md:block font-bold text-white">
             ScholarBeacon
           </Link>
         </div>
@@ -136,7 +144,7 @@ const Navbar = () => {
             </div>{" "}
             <button
               onClick={handleLogout}
-              className="btn bg-[#0AA592] text-white hover:bg-slate-800"
+              className="btn bg-[#0AA592] font-bold text-[16px] text-white border-none hover:bg-[#3b6b57]"
             >
               Logout
             </button>
@@ -144,7 +152,7 @@ const Navbar = () => {
         ) : (
           <Link
             to="/login"
-            className="btn bg-[#0AA592] text-white hover:bg-slate-800"
+            className="btn bg-[#0AA592] font-bold text-[16px] text-white hover:bg-[#3b6b57]"
           >
             Login
           </Link>
