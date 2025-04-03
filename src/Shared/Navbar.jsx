@@ -84,7 +84,7 @@ const Navbar = () => {
 
   return (
     <div
-      className={`navbar px-4 fixed top-0 left-0 w-full p-4 transition-all duration-300 z-50 ${
+      className={`navbar px-4 fixed top-0 left-0 w-full py-2 transition-all duration-300 z-50 ${
         isScrolled
           ? "bg-[#1D293D]/70 backdrop-blur-md shadow-lg"
           : "bg-[#1D293D]/90"
@@ -119,7 +119,7 @@ const Navbar = () => {
 
         <div className="flex items-center gap-2">
           <img src={logo} alt="Logo" className="h-8 w-8" />
-          <Link className="text-[20px] hidden md:block font-bold text-white">
+          <Link className="text-[20px] hidden md:block font-bold text-transparent bg-gradient-to-r from-white to-[#06c4ad] bg-clip-text ">
             ScholarBeacon
           </Link>
         </div>
