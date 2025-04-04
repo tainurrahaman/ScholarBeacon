@@ -31,19 +31,19 @@ const TopScholarship = () => {
       <p className="text-lg md:text-2xl font-semibold md:font-bold text-center mb-8 md:mb-12 lg:mb-16 text-gray-800">
         Unlocking Opportunities for Academic Excellence
       </p>
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 px-10 lg:px-24">
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 px-5 md:px-10 lg:px-24">
         {topScholarships.map((scholarship, index) => (
           <Fade cascade delay={200}>
             <div
               key={index + 1}
-              className="bg-white shadow-lg rounded-lg p-5 border border-gray-200 hover:shadow-xl transition-transform  hover:-translate-1 duration-300 h-full"
+              className="bg-white shadow-lg rounded-lg p-5 pt-0 md:pt-5 border border-gray-200 hover:shadow-xl transition-transform  hover:-translate-1 duration-300 h-full"
             >
               <img
                 src={scholarship.university_logo}
                 alt={`${scholarship.university_name} logo`}
-                className="w-28 lg:w-40 h-28 lg:h-40 object-contain mx-auto mb-4 duration-300 hover:scale-110"
+                className="w-24 md:w-28 lg:w-40 h-28 lg:h-40 object-contain mx-auto mb-0 md:mb-4 duration-300 hover:scale-110"
               />
-              <h3 className="text-xl lg:font-bold font-semibold text-gray-900 text-center">
+              <h3 className="text-xl lg:font-bold font-semibold text-transparent bg-gradient-to-r from-[#1b212b] to-[#03cfb8] bg-clip-text text-center">
                 {scholarship.university_name}
               </h3>
               <p className="text-sm lg:text-[16px] text-gray-700 mt-2">

@@ -6,7 +6,7 @@ const KeyFeatures = () => {
     <div className="my-10 px-5 md:px-10 lg:my-24">
       <div className="flex flex-col md:flex-row gap-10">
         <div className="flex-1 space-y-3">
-          <Fade cascade delay={100} direction="up">
+          <Fade cascade duration={200} direction="up">
             {" "}
             <h2 className="text-2xl md:text-4xl font-bold font-oswald pb-2 md:pb-5 text-transparent bg-gradient-to-r from-[#333E50] to-[#05f3d7] bg-clip-text ">
               Key Features
