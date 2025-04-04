@@ -1,11 +1,9 @@
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Pagination, Autoplay } from "swiper/modules";
-import { Typewriter } from "react-simple-typewriter";
 
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
-import { Slide } from "react-toastify";
 import { Fade } from "react-awesome-reveal";
 
 const handleType = (count) => {
@@ -25,7 +23,6 @@ const Banner = () => {
         pagination={{
           clickable: true,
         }}
-        navigation={true}
         modules={[Autoplay, Pagination, Navigation]}
         className="mySwiper"
       >

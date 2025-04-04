@@ -39,7 +39,7 @@ const Navbar = () => {
         <NavLink
           to="/"
           className={({ isActive }) =>
-            `font-bold text-[16px] mr-2 text-white ${
+            `font-semibold text-[16px] mr-2 text-white ${
               isActive
                 ? "bg-[#0AA592] text-white hover:bg-[#3b6b57]"
                 : "hover:bg-[#3b6b57] text-black"
@@ -53,7 +53,7 @@ const Navbar = () => {
         <NavLink
           to="/allScholarship"
           className={({ isActive }) =>
-            `font-bold text-[16px] mr-2 text-white ${
+            `font-semibold text-[16px] mr-2 text-white ${
               isActive
                 ? "bg-[#0AA592] text-white hover:bg-[#3b6b57]"
                 : "hover:bg-[#3b6b57] text-black"
@@ -68,7 +68,7 @@ const Navbar = () => {
           <NavLink
             to={dashLink}
             className={({ isActive }) =>
-              `font-bold text-[16px] text-white ${
+              `font-semibold text-[16px] text-white ${
                 isActive
                   ? "bg-[#0AA592] text-white hover:bg-[#3b6b57]"
                   : "hover:bg-[#3b6b57] text-black"
@@ -144,7 +144,7 @@ const Navbar = () => {
             </div>{" "}
             <button
               onClick={handleLogout}
-              className="btn bg-[#0AA592] font-bold text-[16px] text-white border-none hover:bg-[#3b6b57]"
+              className="btn bg-[#0AA592] font-semibold text-[16px] text-white hover:bg-[#3b6b57]"
             >
               Logout
             </button>
@@ -152,7 +152,7 @@ const Navbar = () => {
         ) : (
           <Link
             to="/login"
-            className="btn bg-[#0AA592] font-bold text-[16px] text-white hover:bg-[#3b6b57]"
+            className="btn bg-[#0AA592] font-semibold text-[16px] text-white hover:bg-[#3b6b57]"
           >
             Login
           </Link>
