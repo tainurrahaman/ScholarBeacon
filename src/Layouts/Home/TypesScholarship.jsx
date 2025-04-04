@@ -19,7 +19,7 @@ const TypesScholarship = () => {
             <div className="flex items-center space-x-2">
               <FaGlobe className="text-slate-800 text-2xl" />
               <h2 className="font-bold text-lg">
-                Scholarships for <br /> International Students
+                Scholarships for International Students
               </h2>
             </div>
             <p className="text-gray-700 mt-2 text-md">
@@ -49,7 +49,7 @@ const TypesScholarship = () => {
             <div className="flex items-center space-x-2">
               <FaGgCircle className="text-slate-800 text-2xl" />
               <h2 className="font-bold text-lg">
-                Scholarships for <br /> Minority Students
+                Scholarships for Minority Students
               </h2>
             </div>
             <p className="text-gray-700 mt-2 text-md">
