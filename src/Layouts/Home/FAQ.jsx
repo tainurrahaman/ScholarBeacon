@@ -3,7 +3,7 @@ import { Fade } from "react-awesome-reveal";
 
 const FAQ = () => {
   return (
-    <div className="py-10 px-5 font-mulish my-2 md:my-5 lg:my-10 bg-gray-100 rounded-sm h-screen">
+    <div className="py-10 px-5 font-mulish my-2 md:my-5 lg:my-10 bg-gray-100 rounded-sm min-h-screen">
       <h2 className="text-2xl md:text-5xl font-bold text-center md:text-start pb-2 md:pb-8  text-transparent bg-gradient-to-r from-[#1b212b] to-[#03b8a3] bg-clip-text font-oswald">
         Frequently Asked Question(FAQ)
       </h2>
@@ -12,7 +12,7 @@ const FAQ = () => {
           <div className="join join-vertical flex-1">
             <div className="collapse collapse-arrow join-item border-b-2 border-gray-400">
               <input type="radio" name="my-accordion-4" defaultChecked />
-              <div className="collapse-title font-semibold text-[18px] md:text-[20px] lg:text-[22px]">
+              <div className="collapse-title font-semibold text-[18px] md:text-[20px] lg:text-[22px] text-transparent bg-gradient-to-r from-[#333E50] to-[#017a6c] bg-clip-text">
                 What is ScholarBeacon NinetyOne.com?
               </div>
               <div className="collapse-content text-[16px] font-semibold">
@@ -25,7 +25,7 @@ const FAQ = () => {
             </div>
             <div className="collapse collapse-arrow join-item border-b-2 border-gray-400">
               <input type="radio" name="my-accordion-4" />
-              <div className="collapse-title font-semibold  text-[18px] md:text-[20px] lg:text-[22px]">
+              <div className="collapse-title font-semibold  text-[18px] md:text-[20px] lg:text-[22px] text-transparent bg-gradient-to-r from-[#333E50] to-[#017a6c] bg-clip-text">
                 Do I need to create an account to view scholarships on
                 ScholarBeacon NinetyOne.com?
               </div>
@@ -40,7 +40,7 @@ const FAQ = () => {
             </div>
             <div className="collapse collapse-arrow join-item border-b-2 border-gray-400">
               <input type="radio" name="my-accordion-4" />
-              <div className="collapse-title font-semibold  text-[18px] md:text-[20px] lg:text-[22px]">
+              <div className="collapse-title font-semibold  text-[18px] md:text-[20px] lg:text-[22px] text-transparent bg-gradient-to-r from-[#333E50] to-[#017a6c] bg-clip-text">
                 Are the scholarships on ScholarBeacon NinetyOne.com legitimate?
               </div>
               <div className="collapse-content text-[16px] font-semibold">
@@ -58,7 +58,7 @@ const FAQ = () => {
           <div className="join join-vertical flex-1">
             <div className="collapse collapse-arrow join-item border-b-2 border-gray-400">
               <input type="radio" name="my-accordion-4" defaultChecked />
-              <div className="collapse-title font-semibold  text-[18px] md:text-[20px] lg:text-[22px]">
+              <div className="collapse-title font-semibold  text-[18px] md:text-[20px] lg:text-[22px] text-transparent bg-gradient-to-r from-[#333E50] to-[#017a6c] bg-clip-text">
                 How does ScholarBeacon NinetyOne.com stand out from other
                 scholarship platforms?
               </div>
@@ -76,7 +76,7 @@ const FAQ = () => {
             </div>
             <div className="collapse collapse-arrow join-item border-b-2 border-gray-400">
               <input type="radio" name="my-accordion-4" />
-              <div className="collapse-title font-semibold  text-[18px] md:text-[20px] lg:text-[22px]">
+              <div className="collapse-title font-semibold  text-[18px] md:text-[20px] lg:text-[22px] text-transparent bg-gradient-to-r from-[#333E50] to-[#017a6c] bg-clip-text">
                 Is ScholarBeacon NinetyOne.com completely free?
               </div>
               <div className="collapse-content text-[16px] font-semibold">
@@ -88,7 +88,7 @@ const FAQ = () => {
             </div>
             <div className="collapse collapse-arrow join-item border-b-2 border-gray-400">
               <input type="radio" name="my-accordion-4" />
-              <div className="collapse-title font-semibold  text-[18px] md:text-[20px] lg:text-[22px]">
+              <div className="collapse-title font-semibold  text-[18px] md:text-[20px] lg:text-[22px] text-transparent bg-gradient-to-r from-[#333E50] to-[#017a6c] bg-clip-text">
                 How can I get help with a scholarship question?
               </div>
               <div className="collapse-content text-[16px] font-semibold">

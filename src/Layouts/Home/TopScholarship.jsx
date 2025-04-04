@@ -35,7 +35,7 @@ const TopScholarship = () => {
         {topScholarships.map((scholarship, index) => (
           <Fade cascade delay={200}>
             <div
-              key={index}
+              key={index + 1}
               className="bg-white shadow-lg rounded-lg p-5 border border-gray-200 hover:shadow-xl transition-transform  hover:-translate-1 duration-300 h-full"
             >
               <img

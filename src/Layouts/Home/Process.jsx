@@ -17,7 +17,7 @@ const Process = () => {
         />
       </div>
       <Fade cascade delay={100} direction="up">
-        <h2 className="font-bold font-oswald text-2xl md:text-3xl w-full md:w-3/4 mx-auto text-center  text-transparent bg-gradient-to-r from-[#333E50] to-[#017a6c] bg-clip-text">
+        <h2 className="font-bold font-oswald text-2xl md:text-3xl w-full md:w-3/4 mx-auto text-center text-transparent bg-gradient-to-r from-[#333E50] to-[#017a6c] bg-clip-text">
           Empowering students and scholarship managers with innovative features.
           Free up time to focus on your mission and maximize your impact.
         </h2>

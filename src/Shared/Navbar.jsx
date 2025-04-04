@@ -86,7 +86,7 @@ const Navbar = () => {
     <div
       className={`navbar px-4 fixed top-0 left-0 w-full py-2 transition-all duration-300 z-50 ${
         isScrolled
-          ? "bg-[#1D293D]/70 backdrop-blur-md shadow-lg"
+          ? "bg-[#1D293D]/90 backdrop-blur-md shadow-lg"
           : "bg-[#1D293D]/90"
       }`}
     >
