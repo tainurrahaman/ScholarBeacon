@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import UseAxiosPublic from "../../Hook/UseAxiosPublic";
 import Slider from "react-slick";
 import { FaQuoteLeft, FaStar } from "react-icons/fa";
+import { Fade } from "react-awesome-reveal";
 
 const Testimonals = () => {
   const axiosPublic = UseAxiosPublic();
@@ -26,13 +27,17 @@ const Testimonals = () => {
 
   return (
     <div className="py-10 px-5 font-mulish my-2 md:my-5 lg:my-10">
-      <h2 className="text-3xl md:text-5xl font-bold text-center mb-2 md:mb-8 text-gray-800 font-oswald">
-        Scholarship <span className="text-[#0F7771]">Winners</span>(Testimonals)
-      </h2>
-      <p className="text-[16px] md:text-2xl font-semibold md:font-bold text-center mb-8 md:mb-12 lg:mb-16 text-gray-800 w-full md:w-3/4 lg:w-2/3 mx-auto">
-        ScholarBeacon has helped over 26 million students and families find
-        University scholarships. Will you be our next winner?
-      </p>
+      <Fade cascade delay={100} direction="up">
+        {" "}
+        <h2 className="text-3xl md:text-5xl font-bold text-center pb-2 md:pb-8 text-transparent bg-gradient-to-r from-[#1b212b] to-[#02ad99] bg-clip-text font-oswald">
+          Scholarship Winners(Testimonals)
+        </h2>
+        <p className="text-[16px] md:text-2xl font-semibold md:font-bold text-center mb-8 md:mb-12 lg:mb-16 text-gray-800 w-full md:w-3/4 lg:w-2/3 mx-auto">
+          ScholarBeacon has helped over 26 million students and families find
+          University scholarships. Will you be our next winner?
+        </p>
+      </Fade>
+
       {/* testimonal Slider for Highlighted Reviews */}
       <div className="max-w-2xl mx-auto mb-8">
         <Slider {...sliderSettings}>

@@ -154,7 +154,7 @@ const AllScholarships = () => {
           <div className="text-center mt-6">
             {loading}
             <p className="text-lg font-semibold text-gray-600 mt-4">
-              Please wait some time
+              Processing...
             </p>
           </div>
         )}
